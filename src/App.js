@@ -1,58 +1,22 @@
 import React from 'react';
-import { Component } from 'react';
+// import { Component } from 'react';
 
-class App extends Component {
-   constructor() {
-      super();
+class App extends React.Component {
+   constructor(props) {
+      super(props);
+
       this.state = {
-         data:
-         [
-            {
-               "id": 1,
-               "name": "Toan",
-               "age": "28"
-            },
-            {
-               "id": 2,
-               "name": "Thanh Toan",
-               "age": "28"
-            }
-         ]
+         header: "Header from state..",
+         content: "Content from state..."
       }
    }
 
    render() {
       return (
          <div>
-            <Header />
-            <table>
-               <tbody>
-                  {this.state.data.map((person, i) => <TableRow key = {i} data = {person} />)}
-               </tbody>
-            </table>
+            <h1>{this.state.header}</h1>
+            <h2>{this.state.content}</h2>
          </div>
-      );
-   }
-}
-
-class Header extends Component {
-   render() {
-      return (
-         <div>
-            <h1>Header</h1>
-         </div>
-      );
-   }
-}
-
-class TableRow extends Component {
-   render() {
-      return (
-         <tr>
-            <td>{this.props.data.id}</td>
-            <td>{this.props.data.name}</td>
-            <td>{this.props.data.age}</td>
-         </tr>
       );
    }
 }
