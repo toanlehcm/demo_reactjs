@@ -1,21 +1,23 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 class App extends React.Component {
    constructor() {
       super();
 
-      this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+      this.findDomNodeHandler = this.findDomNodeHandler.bind(this);
    };
 
-   forceUpdateHandler() {
-      this.forceUpdate();
+   findDomNodeHandler() {
+      var myDiv = document.getElementById('myDiv');
+      ReactDOM.findDOMNode(myDiv).style.color = 'red';
    };
 
    render() {
       return (
          <div>
-            <button onClick={this.forceUpdateHandler}>force update</button>
-            <h4>random number: {Math.random()}</h4>
+            <button onClick={this.findDomNodeHandler}>find dom node</button>
+            <div id='myDiv'>node</div>
          </div>
       );
    }
