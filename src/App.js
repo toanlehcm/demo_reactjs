@@ -11,4 +11,9 @@ class App extends React.Component {
    }
 }
 
+App.defaultProps = {
+   headerProp: "Header from props...",
+   contentProp: "Content from props..."
+}
+
 export default App;
