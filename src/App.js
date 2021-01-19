@@ -1,23 +1,21 @@
-import React from "react";
-import './style.css';
+// import React, {useState} from "react";
+// import './style.css';
 
-class App extends React.Component {
-    state = {
-        counter: 0
-    }
+// class App extends React.Component {
 
-    increment = () => {
-        this.setState({ counter: this.state.counter + 1});
-    }
+//     Hello() {
+//         const [name, setName] = useState("SS");
 
-    render() {
-        return (
-            <div>
-                <button onClick = {this.increment}>Increment</button>
-                <p>{this.state.counter}</p>
-            </div>
-        );
-    }
-}
+//     };
 
-export default App;
+//     render() {
+        
+//         return (
+//             <div>
+//                 <p>{name}</p>
+//             </div>
+//         );
+//     }
+// }
+
+// export default App;
