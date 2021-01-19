@@ -1,28 +1,27 @@
-import React from "react";
+// import React from "react";
 
-class App extends React.Component {
-   constructor(props) {
-      super(props);
+// class App extends React.Component {
+//    constructor(props) {
+//       super(props);
 
-      this.state = {
-         data: 'Initial data...'
-      }
+//       this.state = {
+//          counter: 0
+//       }
 
-      this.updateState = this.updateState.bind(this);
-   };
+//       this.show = this.show.bind(this);
+//    };
 
-   updateState(e) {
-      this.setState({ data: e.target.value });
-   }
+//    show() {
+//       this.setState({ counter: this.state.counter++ });
+//    }
 
-   render() {
-      return (
-         <div>
-            <input type = 'text' value = {this.state.data} onChange={this.updateState}/>
-            <h4>{this.state.data}</h4>
-         </div>
-      );
-   };
-}
+//    render() {
+//       return (
+//          <div>
+//             <h4>{this.state.counter}</h4>
+//          </div>
+//       );
+//    };
+// }
 
-export default App;
+// export default App;
