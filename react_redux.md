@@ -87,5 +87,8 @@
 
     - When the JSX expressions are compiled, they are converted into JS object, representing React elements.
     - React then uses these elements to build the corresponding HTML DOM and display it in the browser.
+    - Reat updates only the elements that need an update. This example, only the text in the paragraph gets updated every second.
+    - React uses a Virtual DOM, which is a lightweight representation of the DOM. When an element gets changed, it is first updated in the Virtual DOM. That process is fast, as the virtual DOM is represented by simple objects.
+    - After that, React compares the Virtual DOM to its previous state and only applies the DOM updated necessary to bring the DOM to the desired state.
 
 ## Intro to Redux
