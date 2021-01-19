@@ -1,9 +1,16 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 // import App from "./App";
 
-function Hello() {
-    const [name, setName] = useState("SS");
-    return <h1>{name}</h1>;
+function Counter() {
+    const [counter, setCounter] = useState(0);
+
+    function increment() {
+        setCounter(counter + 1);
+    }
+
+    return <div><h1>{counter}</h1>
+        <button onClick={increment}>Increment</button>
+    </div>;
 }
-ReactDOM.render(<Hello />, document.getElementById('app'));
+ReactDOM.render(<Counter />, document.getElementById('app'));
