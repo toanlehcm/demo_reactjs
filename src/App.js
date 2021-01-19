@@ -1,27 +1,16 @@
-// import React from "react";
+import React from "react";
+import './style.css';
 
-// class App extends React.Component {
-//    constructor(props) {
-//       super(props);
+class App extends React.Component {
+    state = {
+        name: "SS"
+    }
 
-//       this.state = {
-//          counter: 0
-//       }
+    render () {
+        return (
+            <p>hello {this.state.name}</p>
+        );
+    }
+}
 
-//       this.show = this.show.bind(this);
-//    };
-
-//    show() {
-//       this.setState({ counter: this.state.counter++ });
-//    }
-
-//    render() {
-//       return (
-//          <div>
-//             <h4>{this.state.counter}</h4>
-//          </div>
-//       );
-//    };
-// }
-
-// export default App;
+export default App;
