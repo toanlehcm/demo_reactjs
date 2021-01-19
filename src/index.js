@@ -2,11 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-let counter = 0;
-function show() {
-    counter++;
-    const el = <p>{counter}</p>
-    ReactDOM.render(el, document.getElementById('app'));
+function Hi() {
+    return <h1>Hello world</h1>;
 }
 
-setInterval(show, 1000);
+const el = <Hi />;
+
+ReactDOM.render(el, document.getElementById('app'));
