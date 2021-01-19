@@ -1,21 +1,27 @@
-// import React, {useState} from "react";
-// import './style.css';
+import React, {useState} from "react";
+import './style.css';
 
-// class App extends React.Component {
+class App extends React.Component {
+    state = {
+        counter: 0
+    }
 
-//     Hello() {
-//         const [name, setName] = useState("SS");
+    increment = () => {
+        this.setState({counter: this.state.counter + 1});
+    }
 
-//     };
+    componentDidMount() {
+        this.setState({counter: 42});
+    }
+    
+    render() {
+        return (
+            <div>
+                <button onClick={this.increment}>increment</button>
+                <p>{this.state.counter}</p>
+            </div>
+        );
+    }
+}
 
-//     render() {
-        
-//         return (
-//             <div>
-//                 <p>{name}</p>
-//             </div>
-//         );
-//     }
-// }
-
-// export default App;
+export default App;
