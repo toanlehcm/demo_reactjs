@@ -2,10 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-function Hi(props) {
+function Hello (props) {
     return <h1>Hello {props.name}</h1>;
 }
 
-const el = <Hi name="the world" />;
+function NameList() {
+    return <div>
+        <Hello name="David" />
+        <Hello name="James" />
+        <Hello name="Amy" />
+    </div>;
+}
 
-ReactDOM.render(el, document.getElementById('app'));
+ReactDOM.render(NameList(), document.getElementById('app'));
