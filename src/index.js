@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import './style.css';
 
-function Item(props) {
+function Item(pro) {
     return <div className="item">
-        <b>Name:</b> {props.name} <br />
-        <b>Price:</b> ${props.price}
+        <b>Name:</b> {pro.name} <br />
+        <b>Price:</b> ${pro.price}
     </div>;
 }
 
@@ -18,6 +18,6 @@ function ItemList() {
     </div>;
 }
 
-const el = <ItemList />;
+// const el = <ItemList />;
 
-ReactDOM.render(el, document.getElementById('app'));
+ReactDOM.render(<ItemList />, document.getElementById('app'));
