@@ -3,12 +3,19 @@ import './style.css';
 
 class App extends React.Component {
     state = {
-        name: "SS"
+        counter: 0
     }
 
-    render () {
+    increment = () => {
+        this.setState({ counter: this.state.counter + 1});
+    }
+
+    render() {
         return (
-            <p>hello {this.state.name}</p>
+            <div>
+                <button onClick = {this.increment}>Increment</button>
+                <p>{this.state.counter}</p>
+            </div>
         );
     }
 }
