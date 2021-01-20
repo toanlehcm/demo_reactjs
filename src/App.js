@@ -1,46 +1,28 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './style.css';
 
 class App extends React.Component {
-    constructor (props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
-            result: 0
+            data: []
         }
 
-        this.updatestate = this.updatestate.bind(this);
-        this.convert = this.convert.bind(this);
+        this.listUp = this.listUp.bind(this);
     }
 
-    updatestate(e) {
-        this.setState({result: e.target.value});
+    listUp() {
+        var arr = ["a", "b", "c"];
+        var myArr = arr.map((val) => <li>{val}</li>);
+        this.setState({ data: myArr });
     }
 
-    convert(km) {
-        alert(km);
-        this.setState({result: km/1.609});
-    }
-
-    // handleChange(e) {
-    //     this.setState(e.target.value);
-    // }
-
-    // componentDidMount() {
-    //     // this.setState({counter: 42});
-    //     alert("convert km to miles app");
-    // }
-
-    // componentDidUpdate() {
-    //     alert("Updaing: " + this.state.result);        
-    // }
-    
     render() {
         return (
             <div>
-                <input type="number" value = {this.state.result} onChange={this.updatestate} />
-                <p>{this.state.result} km is {this.convert} miles</p> 
-                {/* {this.convert(this.state.result)} */}
+                <button onClick={this.listUp} >list up</button>
+                <p>list: {this.state.data} </p>
             </div>
         );
     }
