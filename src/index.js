@@ -1,25 +1,27 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 // import App from "./App";
 
-function Converter() {
-    const [km, setkm] = useState(0);
-
-    useEffect(() => {
-        alert("Test useEffect: " + km);
-    });
+function AddForm() {
+    const [sum, setSum] = useState(0);
+    const [num, setNum] = useState(0);
 
     function handleChange(e) {
-        setkm(e.target.value);
+        setNum(e.target.value);
     }
 
-    function convert(km) {
-        return (km/1.609).toFixed(1);
+    function submit(e) {
+        setSum(sum + Number(num));
+        e.preventDefault();
     }
 
-    return <div><input type="number" value={km} onChange={handleChange} />
-        <p>{km} km is {convert(km)} miles</p>
-    </div>;
+    return <form onSubmit={submit}>
+        <div>
+            <input type="number" value={num} onChange={handleChange} />
+            <input type="submit" value="Add" />
+            <p>Sum is {sum}</p>
+        </div>
+    </form>
 }
 
-ReactDOM.render(<Converter />, document.getElementById('app'));
+ReactDOM.render(<AddForm />, document.getElementById('app'));
