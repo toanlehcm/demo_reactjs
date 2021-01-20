@@ -1,15 +1,42 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+// import App from "./App";
 
-function Mylist(props) {
-    var arr = props.data;
-    var listItems = arr.map((val) => <li>{val}</li>);
+function ContactManager() {
+    var [user, setUser] = useState("");
 
-    return <ul>{listItems}</ul>;
+    function change(e) {
+        setUser(e.target.value);
+    }
+
+    function submit(e) {
+        e.preventDefault();
+    }
+
+    return <div>
+        <h1>Contact manager</h1>
+
+        <form onSubmit={submit}>
+            <input type="text" value={user.name} onChange={change} placeholder="add new contact" />
+            <button type="submit">Add</button>
+        </form>
+    </div>;
 }
 
-var arr = ["A", "B", "C"];
+function GetUserList(props) {
+    var arr = props.data;
+    var listItems = arr.map((val, index) => <li key={index}>{val}</li>);
 
-// ReactDOM.render(<Mylist data={arr} />, document.getElementById('app'));
-ReactDOM.render(<App />, document.getElementById('app'));
+    return <ul>{listItems}</ul>
+}
+
+var contacts = ["James Smith", "Thomas Anderson", "Bruce Wayne"];
+
+var el = (
+    <div>
+        <ContactManager />
+        <GetUserList data={contacts} />
+    </div>
+);
+
+ReactDOM.render(el, document.getElementById('app'));
