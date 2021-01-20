@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import "./style.css";
 // import App from "./App";
 
-function ContactManager() {
+function AddUserForm(props) {
     var [user, setUser] = useState("");
 
     function change(e) {
@@ -10,6 +11,10 @@ function ContactManager() {
     }
 
     function submit(e) {
+        if (user !== '') {
+            props.submit(user);
+            setUser('');
+        }
         e.preventDefault();
     }
 
@@ -30,13 +35,21 @@ function GetUserList(props) {
     return <ul>{listItems}</ul>
 }
 
+function ContactManager(props) {
+    var [contacts, setContacts] = useState(props.data);
+
+    function addUser(name) {
+        setContacts([...contacts, name]);
+    }
+
+    return (
+        <div>
+            <AddUserForm submit={addUser} />
+            <GetUserList data={contacts} />
+        </div>
+    );
+}
+
 var contacts = ["James Smith", "Thomas Anderson", "Bruce Wayne"];
 
-var el = (
-    <div>
-        <ContactManager />
-        <GetUserList data={contacts} />
-    </div>
-);
-
-ReactDOM.render(el, document.getElementById('app'));
+ReactDOM.render(<ContactManager data={contacts} />, document.getElementById('app'));
