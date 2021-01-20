@@ -14,7 +14,7 @@ class App extends React.Component {
 
     listUp() {
         var arr = ["a", "b", "c"];
-        var myArr = arr.map((val) => <li>{val}</li>);
+        var myArr = arr.map((val, index) => <li key={index}>{val}</li>);
         this.setState({ data: myArr });
     }
 
