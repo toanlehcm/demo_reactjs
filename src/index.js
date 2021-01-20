@@ -1,16 +1,21 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+// import App from "./App";
 
-// function Counter() {
-//     const [counter, setCounter] = useState(0);
+function Counter() {
+    const [counter, setCounter] = useState(0);
 
-//     function increment() {
-//         setCounter(counter + 1);
-//     }
+    useEffect(() => {
+        alert("Test useEffect: " + counter);
+    });
 
-//     return <div><h1>{counter}</h1>
-//         <button onClick={increment}>Increment</button>
-//     </div>;
-// }
-ReactDOM.render(<App />, document.getElementById('app'));
+    function increment() {
+        setCounter(counter + 1);
+    }
+
+    return <div><h1>{counter}</h1>
+        <button onClick={increment}>Increment</button>
+    </div>;
+}
+
+ReactDOM.render(<Counter />, document.getElementById('app'));

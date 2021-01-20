@@ -11,7 +11,8 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({counter: 42});
+        // this.setState({counter: 42});
+        alert("component did mount");
     }
 
     componentDidUpdate() {
