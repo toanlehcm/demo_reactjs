@@ -2,28 +2,45 @@ import React, {useState} from "react";
 import './style.css';
 
 class App extends React.Component {
-    state = {
-        counter: 0
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            result: 0
+        }
+
+        this.updatestate = this.updatestate.bind(this);
+        this.convert = this.convert.bind(this);
     }
 
-    increment = () => {
-        this.setState({counter: this.state.counter + 1});
+    updatestate(e) {
+        this.setState({result: e.target.value});
     }
 
-    componentDidMount() {
-        // this.setState({counter: 42});
-        alert("component did mount");
+    convert(km) {
+        alert(km);
+        this.setState({result: km/1.609});
     }
 
-    componentDidUpdate() {
-        alert("Number of clicks: " + this.state.counter);        
-    }
+    // handleChange(e) {
+    //     this.setState(e.target.value);
+    // }
+
+    // componentDidMount() {
+    //     // this.setState({counter: 42});
+    //     alert("convert km to miles app");
+    // }
+
+    // componentDidUpdate() {
+    //     alert("Updaing: " + this.state.result);        
+    // }
     
     render() {
         return (
             <div>
-                <button onClick={this.increment}>increment</button>
-                <p>{this.state.counter}</p>
+                <input type="number" value = {this.state.result} onChange={this.updatestate} />
+                <p>{this.state.result} km is {this.convert} miles</p> 
+                {/* {this.convert(this.state.result)} */}
             </div>
         );
     }

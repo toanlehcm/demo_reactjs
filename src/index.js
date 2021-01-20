@@ -2,20 +2,24 @@ import React, {useState, useEffect} from "react";
 import ReactDOM from "react-dom";
 // import App from "./App";
 
-function Counter() {
-    const [counter, setCounter] = useState(0);
+function Converter() {
+    const [km, setkm] = useState(0);
 
     useEffect(() => {
-        alert("Test useEffect: " + counter);
+        alert("Test useEffect: " + km);
     });
 
-    function increment() {
-        setCounter(counter + 1);
+    function handleChange(e) {
+        setkm(e.target.value);
     }
 
-    return <div><h1>{counter}</h1>
-        <button onClick={increment}>Increment</button>
+    function convert(km) {
+        return (km/1.609).toFixed(1);
+    }
+
+    return <div><input type="number" value={km} onChange={handleChange} />
+        <p>{km} km is {convert(km)} miles</p>
     </div>;
 }
 
-ReactDOM.render(<Counter />, document.getElementById('app'));
+ReactDOM.render(<Converter />, document.getElementById('app'));
