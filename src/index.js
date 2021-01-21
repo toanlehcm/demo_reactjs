@@ -1,55 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
+import AddUserForm from "./components/AddUserForm";
+import GetUserList from "./components/GetUserList";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 import "./style.css";
-// import App from "./App";
 
-function AddUserForm(props) {
-    var [user, setUser] = useState("");
+const initialState = {
+    contacts: ["James Smith", "Thomas Anderson", "Bruce Wayne"]
+};
 
-    function change(e) {
-        setUser(e.target.value);
+// Reducer function
+function reducer(state = initialState, action) {
+    switch (action.type) {
+        case 'ADD_USER':
+            return { ...state, contacts: [...state.contacts, action.data] }
+        default:
+            return state;
     }
-
-    function submit(e) {
-        if (user !== '') {
-            props.submit(user);
-            setUser('');
-        }
-        e.preventDefault();
-    }
-
-    return <div>
-        <h1>Contact manager</h1>
-
-        <form onSubmit={submit}>
-            <input type="text" value={user.name} onChange={change} placeholder="add new contact" />
-            <button type="submit">Add</button>
-        </form>
-    </div>;
 }
 
-function GetUserList(props) {
-    var arr = props.data;
-    var listItems = arr.map((val, index) => <li key={index}>{val}</li>);
+// create store
+const store = createStore(reducer);
 
-    return <ul>{listItems}</ul>
-}
-
-function ContactManager(props) {
-    var [contacts, setContacts] = useState(props.data);
-
-    function addUser(name) {
-        setContacts([...contacts, name]);
-    }
-
-    return (
-        <div>
-            <AddUserForm submit={addUser} />
-            <GetUserList data={contacts} />
-        </div>
-    );
-}
-
-var contacts = ["James Smith", "Thomas Anderson", "Bruce Wayne"];
-
-ReactDOM.render(<ContactManager data={contacts} />, document.getElementById('app'));
+// pass the store to our components
+ReactDOM.render(
+    <Provider store={store}>
+        <AddUserForm />
+        <GetUserList />
+    </Provider>,
+    document.getElementById('app'));
