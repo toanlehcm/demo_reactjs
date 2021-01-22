@@ -5,6 +5,8 @@ import GetUserList from "./components/GetUserList";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import "./style.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'jquery/dist/jquery.min.js';
 
 const initialState = {
     contacts: ["James Smith", "Thomas Anderson", "Bruce Wayne"]
