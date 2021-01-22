@@ -1,34 +1,59 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import AddUserForm from "./components/AddUserForm";
-import GetUserList from "./components/GetUserList";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
+import { useFormik } from "formik";
 import "./style.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'jquery/dist/jquery.min.js';
 
-const initialState = {
-    contacts: ["James Smith", "Thomas Anderson", "Bruce Wayne"]
+const SignupForm = () => {
+    // Notice that we have to initialize ALL of fields with values. These
+    // could come from props, but since we don't want to prefill this form,
+    // we just use an empty string. If you don't do this, React will yell
+    // at you.
+    const formik = useFormik({
+        initialValues: { 
+            firstName: '',
+            lastName: '',
+            email: '' },
+        onSubmit: values => {
+            alert(JSON.stringify(values, null, 2));
+        }
+    });
+
+    return (
+        <form onSubmit={formik.handleSubmit}>
+            <label htmlFor="firstName">First Name</label>
+            <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.firstName}
+            />
+
+            <label htmlFor="lastName">Last Name</label>
+            <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                onChange={formik.handleChange}
+                value={formik.values.lastName}
+            />
+            
+            <label htmlFor="email">Email Address</label>
+            <input id="email"
+                name="email"
+                type="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+            />
+
+            <button type="submit">Submit</button>
+        </form>
+    );
 };
 
-// Reducer function
-function reducer(state = initialState, action) {
-    switch (action.type) {
-        case 'ADD_USER':
-            return { ...state, contacts: [...state.contacts, action.data] }
-        default:
-            return state;
-    }
+function App() {
+    return <SignupForm />
 }
 
-// create store
-const store = createStore(reducer);
-
-// pass the store to our components
-ReactDOM.render(
-    <Provider store={store}>
-        <AddUserForm />
-        <GetUserList />
-    </Provider>,
-    document.getElementById('app'));
+const rootElement = document.getElementById("app");
+ReactDOM.render(<App />, rootElement);
