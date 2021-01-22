@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { addUser } from "../action";
 import SweetAlert from 'react-bootstrap-sweetalert';
-import { Formik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 
 function AddUserForm(props) {
     var [user, setUser] = useState('');
@@ -71,7 +71,7 @@ function AddUserForm(props) {
             }}
         >
 
-            {({
+            {/* {({
                 values,
                 errors,
                 touched,
@@ -94,6 +94,20 @@ function AddUserForm(props) {
                     <button type="submit" disabled={isSubmitting}>Submit</button>
                     <button type='submit' onClick={handleDelete}>Delete</button> {alert}
                 </form>
+            )} */}
+
+            {({ isSubmitting }) => (
+                <Form>
+                    <Field type="email" name="email" />
+                    <ErrorMessage name="email" component="div" />
+                    
+                    <Field type="password" name="password" />
+                    <ErrorMessage name="password" component="div" />
+                    
+                    <button type="submit" disabled={isSubmitting}>
+                        Submit
+                    </button>
+                </Form>
             )}
         </Formik>
     </div>);
