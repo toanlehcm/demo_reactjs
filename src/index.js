@@ -30,8 +30,8 @@ const store = createStore(reducer);
 ReactDOM.render(
   <Provider store={store}>
     <App />
-    <AddUserForm />
-    <GetUserList />
+    {/* <AddUserForm />
+    <GetUserList /> */}
   </Provider>,
   document.getElementById("app")
 );

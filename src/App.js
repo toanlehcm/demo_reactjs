@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
+import Menu from "./components/MenuComponent";
 import "./style.css";
 
 class App extends React.Component {
-  constructor() {
-    super();
+  // constructor() {
+  //   super();
 
-    this.state = {
-      data: [],
-    };
+  //   this.state = {
+  //     data: [],
+  //   };
 
-    this.listUp = this.listUp.bind(this);
-  }
+  //   this.listUp = this.listUp.bind(this);
+  // }
 
-  listUp() {
-    var arr = ["a", "b", "c"];
-    var myArr = arr.map((val, index) => <li key={index}>{val}</li>);
-    this.setState({ data: myArr });
-  }
+  // listUp() {
+  //   var arr = ["a", "b", "c"];
+  //   var myArr = arr.map((val, index) => <li key={index}>{val}</li>);
+  //   this.setState({ data: myArr });
+  // }
 
   render() {
     return (
@@ -26,11 +27,12 @@ class App extends React.Component {
           <div className="container">
             <NavbarBrand href="/">React</NavbarBrand>
           </div>
-          <div>
+          {/* <div>
             <button onClick={this.listUp}>list up</button>
             <p>list: {this.state.data} </p>
-          </div>
+          </div> */}
         </Navbar>
+        <Menu />
       </div>
     );
   }
