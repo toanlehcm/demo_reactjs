@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
 import Menu from "./components/MenuComponent";
+import { DISHES } from "./shared/dishes";
 import "./style.css";
 
 class App extends React.Component {
-  // constructor() {
-  //   super();
+  constructor(props) {
+    super(props);
 
-  //   this.state = {
-  //     data: [],
-  //   };
-
-  //   this.listUp = this.listUp.bind(this);
-  // }
-
-  // listUp() {
-  //   var arr = ["a", "b", "c"];
-  //   var myArr = arr.map((val, index) => <li key={index}>{val}</li>);
-  //   this.setState({ data: myArr });
-  // }
+    this.state = {
+      dishes: DISHES,
+    };
+  }
 
   render() {
     return (
@@ -27,12 +20,8 @@ class App extends React.Component {
           <div className="container">
             <NavbarBrand href="/">React</NavbarBrand>
           </div>
-          {/* <div>
-            <button onClick={this.listUp}>list up</button>
-            <p>list: {this.state.data} </p>
-          </div> */}
         </Navbar>
-        <Menu />
+        <Menu dishes={this.state.dishes} />
       </div>
     );
   }
