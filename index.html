@@ -1,191 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-</head>
-
-<body>
-
-
-  <style type="text/css">
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-
-    /* CSS Progress bar */
-    .wrapper {
-      width: 600px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 0px auto;
-      margin-top: 30vh;
-    }
-
-    .progress-bar {
-      width: 100%;
-      background-color: whitesmoke;
-      padding: 2px;
-    }
-
-    .progress-bar-fill {
-      display: block;
-      height: 40px;
-      background-color: #65ef88;
-      border-radius: 3px;
-      width: 0%;
-      /* Starts at 0%, updates with download progress */
-
-      transition: width 30ms ease-in-out;
-    }
-
-    .progress-text {
-      font-size: 1.5rem;
-      padding: 10px;
-    }
-
-    img {
-      display: block;
-      margin: 0px auto;
-    }
-  </style>
-
-  <body data-rsssl=1>
-    <div class="wrapper">
-      <div class="progress-bar">
-        <span class="progress-bar-fill"></span>
-      </div>
-      <span class="progress-text">Loading...</span>
-
-      <video id="video_demo" width="500px" height="500px" preload="true" autoplay="true"></video>
-    </div>
-
-  </body>
-  <script>
-
-    const fill = document.querySelector('.progress-bar-fill');
-    const text = document.querySelector('.progress-text');
-    const videoDemo = document.getElementById("video_demo");
-
-    function loadVideo() {
-      fetch('https://dl.dropboxusercontent.com/scl/fi/7jotk4igvtkludxge8qcj/hero_title_1080.mov?rlkey=pcgl2nte1rb92fmaa820nrqyq&dl=1')
-        .then(response => {
-          const contentLength = response.headers.get('content-length');
-          let loaded = 0;
-          return new Response(
-            new ReadableStream({
-              start(controller) {
-                const reader = response.body.getReader();
-                read();
-                function read() {
-                  reader.read()
-                    .then((progressEvent) => {
-                      if (progressEvent.done) {
-                        controller.close();
-                        return;
-                      }
-
-                      loaded += progressEvent.value.byteLength;
-
-                      const percentageComplete = Math.round(loaded / contentLength * 100) + '%';
-                      fill.style.width = percentageComplete;
-                      text.innerText = percentageComplete;
-                      // Calculates % complete and updates progress bar and print text to DOM
-
-                      controller.enqueue(progressEvent.value);
-                      read();
-                    })
-                }
-              }
-            })
-          );
-        })
-        .then(response => response.blob())
-        .then(blob => {
-          videoDemo.src = URL.createObjectURL(blob);
-        })
-    }
-
-    loadVideo();
-    // --
-    function promisifyRequest(request) {
-      return new Promise((resolve, reject) => {
-        request.oncomplete = request.onsuccess = () => resolve(request.result);
-        request.onabort = request.onerror = () => reject(request.error);
-      });
-    }
-
-    function createStore(dbName, storeName) {
-      const request = indexedDB.open(dbName);
-      request.onupgradeneeded = () => request.result.createObjectStore(storeName);
-      const dbp = promisifyRequest(request);
-
-      return (txMode, callback) =>
-        dbp.then((db) =>
-          callback(db.transaction(storeName, txMode).objectStore(storeName)),
-        );
-    }
-
-    let defaultGetStoreFunc;
-
-    function defaultGetStore() {
-      if (!defaultGetStoreFunc) {
-        defaultGetStoreFunc = createStore('keyval-store', 'keyval');
-      }
-      return defaultGetStoreFunc;
-    }
-
-    function set(key, value, customStore = defaultGetStore()) {
-      return customStore('readwrite', (store) => {
-        
-        store.put(value, key);
-        return promisifyRequest(store.transaction);
-      });
-    }
-
-    function get(key, customStore = defaultGetStore()) {
-      return customStore('readonly', (store) => promisifyRequest(store.get(key)));
-    }
-
-
-    async function createBlob() {
-      const response = await fetch(
-        // 'https://miro.medium.com/max/1400/1*sAUnjuM5TXHlf7Qdef84jw.png',
-        'https://dl.dropboxusercontent.com/scl/fi/7jotk4igvtkludxge8qcj/hero_title_1080.mov?rlkey=pcgl2nte1rb92fmaa820nrqyq&dl=1'
-      );
-      const data = await response.blob();
-      console.log('data',data);
-      return data;
-    }
-
-    async function showImage() {
-      const blob = await get('imageBlob');
-
-      const objectURL = URL.createObjectURL(blob);
-      document.querySelector('img').src = objectURL;
-
-      // URL.revokeObjectURL(objectURL);
-    }
-
-
-    void (async () => {
-      const blob = await createBlob();
-      await set('imageBlob', blob);
-
-      // Take out when in use:
-      setTimeout(() => {
-        showImage();
-      }, 2000);
-    })();
-
-  </script>
-
-</body>
-
-</html> -->
-<!-- ------- -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -197,28 +9,34 @@
 </head>
 
 <body>
-  <!-- <div class="page"> -->
-  <!-- <div class="keyart" id="parallax"> -->
-  <!-- <div class="keyart_layer" id="keyart-8"></div> -->
-  <!-- <div class="keyart_layer" id="keyart-7"></div> -->
-  <!-- <div class="keyart_layer" id="keyart-6"></div> -->
-  <!-- <div class="keyart_layer" id="keyart-5"></div> -->
-  <!-- <div class="keyart_layer" id="keyart-4"></div> -->
-  <!-- <div class="keyart_layer" id="keyart-3"></div> -->
-  <!-- <div class="keyart_layer" id="keyart-2"></div> -->
-  <!-- <div class="keyart_layer" id="keyart-1"></div> -->
-  <!-- <div class="keyart_layer" id="keyart-0"></div> -->
-  <!-- </div> -->
-  <!-- <div class="overflow">
-      <h1>CSS Parallax Scrolling</h1>
-    </div> -->
-  <!-- </div> -->
-
-  <div class="parallax">
-    <!--layer 1 will be the bottom layer, layer 3 will be the top layer-->
-    <div class="parallax-layer layer1">LAYER 1</div>
-    <div class="parallax-layer layer2">LAYER 2</div>
-    <div class="parallax-layer layer3">LAYER 3</div>
+  <div class="wrapper">
+    <header>
+      <img src="https://cdn.imgpaste.net/2022/10/10/Kem93m.png" class="background">
+      <img src="https://cdn.imgpaste.net/2022/10/10/KemO9N.png" class="foreground">
+      <h1 class="title">Welcome!</h1>
+    </header>
+    <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse facilis unde illo neque at hic quisquam,
+      nulla consectetur, itaque maxime sit iusto aliquam culpa reiciendis eaque recusandae vitae modi, animi expedita
+      perferendis inventore. Culpa incidunt odit dicta quibusdam ullam facilis eum magnam, consectetur voluptates
+      praesentium, pariatur eos nihil! Natus in, autem aut facere repellat eveniet commodi illo ullam hic fugit deserunt
+      explicabo esse atque reprehenderit optio, dicta suscipit sed! Porro fugiat numquam vel magni, iure provident
+      consequuntur velit ut quia itaque repudiandae molestiae, nobis sequi incidunt autem! Cum impedit accusamus
+      laboriosam eaque necessitatibus consectetur incidunt a exercitationem molestias doloribus tenetur amet, ullam at
+      repudiandae, quos reprehenderit adipisci assumenda dolor enim voluptas natus! Assumenda praesentium voluptate
+      culpa quidem quasi impedit unde incidunt odit velit, dolore officiis distinctio, fugit, optio sed. Quos nesciunt
+      eius reprehenderit ipsa consectetur tempora, fugiat provident corporis perspiciatis veritatis totam temporibus
+      voluptates soluta vitae mollitia molestias reiciendis expedita doloribus est. Maxime et fugit expedita id sed
+      cumque harum dignissimos aperiam voluptatum quos obcaecati illo tempore consectetur, sunt perferendis eius aliquid
+      soluta praesentium voluptatem assumenda ex fuga. Iusto, possimus? Dolores deleniti eaque, aperiam consequuntur
+      odit culpa, architecto, quas veniam provident inventore eius. Laboriosam in reprehenderit quidem? Officiis illum
+      molestiae, praesentium velit, illo debitis quasi fuga laborum veritatis necessitatibus fugiat cupiditate! Quia
+      animi provident maxime numquam porro itaque! Provident, rerum. Aliquid cum quo ducimus ad? Repellat nihil, saepe
+      beatae rerum sint eveniet voluptate officiis velit autem officia tempore deserunt sequi quod quae culpa sed.
+      Reprehenderit eveniet ipsum nihil ipsam quam facilis, possimus modi placeat ratione soluta voluptate obcaecati
+      error minima enim, fugiat quaerat architecto, iure dignissimos a eum quidem eos at fuga. Consectetur, quisquam at
+      reprehenderit in exercitationem inventore incidunt dolorum quos adipisci labore? Fugiat facilis ipsum minus,
+      officiis eos modi sequi distinctio pariatur reprehenderit accusantium labore obcaecati, recusandae saepe?
+    </section>
   </div>
 </body>
 
