@@ -1,0 +1,309 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+
+  <style type="text/css">
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* CSS Progress bar */
+    .wrapper {
+      width: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0px auto;
+      margin-top: 30vh;
+    }
+
+    .progress-bar {
+      width: 100%;
+      background-color: whitesmoke;
+      padding: 2px;
+    }
+
+    .progress-bar-fill {
+      display: block;
+      height: 40px;
+      background-color: #65ef88;
+      border-radius: 3px;
+      width: 0%;
+      /* Starts at 0%, updates with download progress */
+
+      transition: width 30ms ease-in-out;
+    }
+
+    .progress-text {
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+
+    img {
+      display: block;
+      margin: 0px auto;
+    }
+  </style>
+
+  <body data-rsssl=1>
+    <div class="wrapper">
+      <div class="progress-bar">
+        <span class="progress-bar-fill"></span>
+      </div>
+      <span class="progress-text">Loading...</span>
+
+      <video id="video_demo" width="500px" height="500px" preload="true" autoplay="true"></video>
+    </div>
+
+  </body>
+  <script>
+
+    const fill = document.querySelector('.progress-bar-fill');
+    const text = document.querySelector('.progress-text');
+    const videoDemo = document.getElementById("video_demo");
+
+    function loadVideo() {
+      fetch('https://dl.dropboxusercontent.com/scl/fi/7jotk4igvtkludxge8qcj/hero_title_1080.mov?rlkey=pcgl2nte1rb92fmaa820nrqyq&dl=1')
+        .then(response => {
+          const contentLength = response.headers.get('content-length');
+          let loaded = 0;
+          return new Response(
+            new ReadableStream({
+              start(controller) {
+                const reader = response.body.getReader();
+                read();
+                function read() {
+                  reader.read()
+                    .then((progressEvent) => {
+                      if (progressEvent.done) {
+                        controller.close();
+                        return;
+                      }
+
+                      loaded += progressEvent.value.byteLength;
+
+                      const percentageComplete = Math.round(loaded / contentLength * 100) + '%';
+                      fill.style.width = percentageComplete;
+                      text.innerText = percentageComplete;
+                      // Calculates % complete and updates progress bar and print text to DOM
+
+                      controller.enqueue(progressEvent.value);
+                      read();
+                    })
+                }
+              }
+            })
+          );
+        })
+        .then(response => response.blob())
+        .then(blob => {
+          videoDemo.src = URL.createObjectURL(blob);
+        })
+    }
+
+    loadVideo();
+    // --
+    function promisifyRequest(request) {
+      return new Promise((resolve, reject) => {
+        request.oncomplete = request.onsuccess = () => resolve(request.result);
+        request.onabort = request.onerror = () => reject(request.error);
+      });
+    }
+
+    function createStore(dbName, storeName) {
+      const request = indexedDB.open(dbName);
+      request.onupgradeneeded = () => request.result.createObjectStore(storeName);
+      const dbp = promisifyRequest(request);
+
+      return (txMode, callback) =>
+        dbp.then((db) =>
+          callback(db.transaction(storeName, txMode).objectStore(storeName)),
+        );
+    }
+
+    let defaultGetStoreFunc;
+
+    function defaultGetStore() {
+      if (!defaultGetStoreFunc) {
+        defaultGetStoreFunc = createStore('keyval-store', 'keyval');
+      }
+      return defaultGetStoreFunc;
+    }
+
+    function set(key, value, customStore = defaultGetStore()) {
+      return customStore('readwrite', (store) => {
+        
+        store.put(value, key);
+        return promisifyRequest(store.transaction);
+      });
+    }
+
+    function get(key, customStore = defaultGetStore()) {
+      return customStore('readonly', (store) => promisifyRequest(store.get(key)));
+    }
+
+
+    async function createBlob() {
+      const response = await fetch(
+        // 'https://miro.medium.com/max/1400/1*sAUnjuM5TXHlf7Qdef84jw.png',
+        'https://dl.dropboxusercontent.com/scl/fi/7jotk4igvtkludxge8qcj/hero_title_1080.mov?rlkey=pcgl2nte1rb92fmaa820nrqyq&dl=1'
+      );
+      const data = await response.blob();
+      console.log('data',data);
+      return data;
+    }
+
+    async function showImage() {
+      const blob = await get('imageBlob');
+
+      const objectURL = URL.createObjectURL(blob);
+      document.querySelector('img').src = objectURL;
+
+      // URL.revokeObjectURL(objectURL);
+    }
+
+
+    void (async () => {
+      const blob = await createBlob();
+      await set('imageBlob', blob);
+
+      // Take out when in use:
+      setTimeout(() => {
+        showImage();
+      }, 2000);
+    })();
+
+  </script>
+
+</body>
+
+</html> -->
+<!-- ------- -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll Parallax Effect</title>
+
+  <style type="text/css">
+    body {
+      margin: 0;
+      font-family: Helvetica, Sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .page {
+      width: 100vw;
+      height: 100vh;
+      perspective: 1px;
+      perspective-origin: center center;
+      overflow-x: hidden;
+    }
+
+    .overflow {
+      position: absolute;
+      width: 100vw;
+      height: 80vh;
+      top: 100vh;
+      background-color: #FFF;
+    }
+
+    #parallax {
+      transform-style: preserve-3d;
+      height: 120vh;
+    }
+
+    .keyart_layer {
+      background-position: bottom center;
+      background-size: cover;
+      background-repeat: repeat-x;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    #keyart-0 {
+      background-image: url('./public/images/bg_transition.jpg');
+      background-color: #ffaf1b;
+      transform: translate3d(-11px, -46px, -1.3px) scale(2.3);
+    }
+
+    #keyart-1 {
+      background-image: url('http://www.firewatchgame.com/images/parallax/parallax1.png');
+      transform: translate3d(0, -47px, -.7px) scale(1.7);
+    }
+
+    #keyart-2 {
+      background-image: url('http://www.firewatchgame.com/images/parallax/parallax2.png');
+      transform: translate3d(0, -98px, -.4px) scale(1.6);
+    }
+
+    #keyart-3 {
+      background-image: url('http://www.firewatchgame.com/images/parallax/parallax3.png');
+      transform: translate3d(0, -2px, -.1px) scale(1.1);
+    }
+
+    #keyart-4 {
+      background-image: url('http://www.firewatchgame.com/images/parallax/parallax4.png');
+      transform: translate3d(0, 35px, .1px) scale(.9);
+    }
+
+    #keyart-5 {
+      background-image: url('http://www.firewatchgame.com/images/parallax/parallax5.png');
+      transform: translate3d(0, 84px, .2px) scale(.8);
+    }
+
+    #keyart-6 {
+      background-image: url('./public/images/bg_mask_2.png');
+      transform: translate3d(0, 106px, .3px) scale(.7);
+    }
+
+    #keyart-7 {
+      background-image: url('./public/images/bg_mask_2.png');
+      /* transform:translate3d(0,106px,.38px) scale(.65); */
+      transform: translate3d(0, 100px, 0px) scale(1);
+    }
+
+    #keyart-8 {
+      background-image: url('./public/images/bg_mask_2.png');
+      /* transform: translate3d(0, 180px, .45px) scale(1); */
+      transform: translate3d(0, 400px, 0px) scale(1);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="keyart" id="parallax">
+      <div class="keyart_layer" id="keyart-8"></div>
+      <div class="keyart_layer" id="keyart-7"></div>
+      <!-- <div class="keyart_layer" id="keyart-6"></div> -->
+      <!-- <div class="keyart_layer" id="keyart-5"></div> -->
+      <!-- <div class="keyart_layer" id="keyart-4"></div> -->
+      <!-- <div class="keyart_layer" id="keyart-3"></div> -->
+      <!-- <div class="keyart_layer" id="keyart-2"></div> -->
+      <!-- <div class="keyart_layer" id="keyart-1"></div> -->
+      <div class="keyart_layer" id="keyart-0"></div>
+    </div>
+    <div class="overflow">
+      <h1>CSS Parallax Scrolling</h1>
+    </div>
+  </div>
+</body>
+
+</html>
