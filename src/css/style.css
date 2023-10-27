@@ -1,4 +1,157 @@
-* {
+/*---------- 27102023 ----------*/
+body {
+  margin: 0;
+}
+
+/* parallax "viewport" */
+.parallax {
+  height: 100vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  perspective: 1px;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.layer1 {
+  transform: translateZ(0);
+}
+
+.layer2 {
+  transform: translateZ(-1px);
+}
+
+.layer3 {
+  transform: translateZ(-2px);
+}
+
+.parallax-layer.layer1 {
+  width: 100%;
+  height: 100rem;
+
+  background-color: red;
+}
+
+.parallax-layer.layer2 {
+  top: 10rem;
+
+  width: 100%;
+  height: 50rem;
+
+  background-color: green;
+}
+
+.parallax-layer.layer3 {
+  top: 20rem;
+
+  width: 100%;
+  height: 50rem;
+
+  background-color: blue;
+}
+
+div {
+  font-size: 50px;
+  text-align: center;
+}
+/*---------- 26102023 ----------*/
+/* body {
+  margin: 0;
+  font-family: Helvetica, Sans-serif;
+  overflow-x: hidden;
+}
+
+h1 {
+  text-align: center;
+}
+
+.page {
+  width: 100vw;
+  height: 100vh;
+  perspective: 1px;
+  perspective-origin: center center;
+  overflow-x: hidden;
+}
+
+.overflow {
+  position: absolute;
+  width: 100vw;
+  height: 80vh;
+  top: 100vh;
+  background-color: #FFF;
+}
+
+#parallax {
+  transform-style: preserve-3d;
+  height: 120vh;
+}
+
+.keyart_layer {
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: repeat-x;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#keyart-0 {
+  background-image: url('./public/images/bg_transition.jpg');
+  background-color: #ffaf1b;
+  transform: translate3d(-11px, -46px, -1.3px) scale(2.3);
+}
+
+#keyart-1 {
+  background-image: url('http://www.firewatchgame.com/images/parallax/parallax1.png');
+  transform: translate3d(0, -47px, -.7px) scale(1.7);
+}
+
+#keyart-2 {
+  background-image: url('http://www.firewatchgame.com/images/parallax/parallax2.png');
+  transform: translate3d(0, -98px, -.4px) scale(1.6);
+}
+
+#keyart-3 {
+  background-image: url('http://www.firewatchgame.com/images/parallax/parallax3.png');
+  transform: translate3d(0, -2px, -.1px) scale(1.1);
+}
+
+#keyart-4 {
+  background-image: url('http://www.firewatchgame.com/images/parallax/parallax4.png');
+  transform: translate3d(0, 35px, .1px) scale(.9);
+}
+
+#keyart-5 {
+  background-image: url('http://www.firewatchgame.com/images/parallax/parallax5.png');
+  transform: translate3d(0, 84px, .2px) scale(.8);
+}
+
+#keyart-6 {
+  background-image: url('./public/images/bg_mask_2.png');
+  transform: translate3d(0, 106px, .3px) scale(.7);
+}
+
+#keyart-7 {
+  background-image: url('./public/images/bg_mask_2.png');
+  transform: translate3d(0, 106px, .38px) scale(.65);
+transform: translate3d(0, 100px, 0px) scale(1); 
+}
+#keyart-8 {
+  background-image: url('./public/images/bg_mask_2.png');
+  transform: translate3d(0, 180px, .45px) scale(1);
+  transform: translate3d(0, 400px, 0px) scale(1);
+} */
+/* * {
   margin: 0;
   box-sizing: border-box;
 }
@@ -231,4 +384,4 @@ footer img {
     grid-template-columns: 1fr;
     gap: 1rem 0;
   }
-}
+} */
