@@ -20,11 +20,14 @@ header {
 }
 
 .background {
-  transform: translateZ(-10px) scale(2);
+  /* transform: translateZ(-10px) scale(2); */
+  transform: translateZ(-8px) scale(1.9);
 }
 
 .foreground {
-  transform: translateZ(-5px) scale(1.5);
+  /* transform: translateZ(-5px) scale(1.5); */
+  transform: translateZ(-1px) scale(1.1);
+  /* transform: translate3d(0px, 30%, 2px) scale(1); */
 }
 
 .background,
