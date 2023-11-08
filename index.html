@@ -100,18 +100,15 @@
 
 <script>
   function init() {
-    new SmoothScroll(document, 120, 12)
+    new SmoothScroll(document)
   }
 
-  function SmoothScroll(target, speed, smooth) {
+  function SmoothScroll(target) {
+    const SPEED = 120;
+    const SMOOTH = 12;
 
     // cross browser support for document scrolling
-    if (target === document) {
-      target = (document.scrollingElement
-        || document.documentElement
-        || document.body.parentNode
-        || document.body)
-    }
+    var target = document.scrollingElement;
 
     var moving = false
     var pos = target.scrollTop
@@ -119,7 +116,7 @@
       && document.documentElement
       ? document.documentElement
       : target // safari is the new IE
-    
+
     // target.addEventListener('scroll', scrolled, { passive: false })
     target.addEventListener('mousewheel', scrolled, { passive: false })
     target.addEventListener('DOMMouseScroll', scrolled, { passive: false })
@@ -134,7 +131,7 @@
         delta = e.wheelDelta / 120 // IE,Safari,Chrome
       );
 
-      pos += -delta * speed
+      pos += -delta * SPEED
       pos = Math.max(0, Math.min(pos, target.scrollHeight - frame.clientHeight)) // limit scrolling
 
       if (!moving) {
@@ -144,8 +141,8 @@
 
     function update() {
       moving = true
-      
-      var delta = (pos - target.scrollTop) / smooth
+
+      var delta = (pos - target.scrollTop) / SMOOTH
 
       target.scrollTop += delta
 
