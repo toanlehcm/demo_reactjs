@@ -1,1 +1,6 @@
-{}
+{
+  "index.tsx -> @/containers/Demo/Demo": {
+    "id": "index.tsx -> @/containers/Demo/Demo",
+    "files": ["static/chunks/containers_Demo_Demo_tsx.js"]
+  }
+}
