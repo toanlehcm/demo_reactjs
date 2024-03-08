@@ -1,31 +1,25 @@
-import React, { useState } from "react";
-import './style.css';
+import logo from './logo.svg';
+import './App.css';
 
-class App extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            data: []
-        }
-
-        this.listUp = this.listUp.bind(this);
-    }
-
-    listUp() {
-        var arr = ["a", "b", "c"];
-        var myArr = arr.map((val, index) => <li key={index}>{val}</li>);
-        this.setState({ data: myArr });
-    }
-
-    render() {
-        return (
-            <div>
-                <button onClick={this.listUp} >list up</button>
-                <p>list: {this.state.data} </p>
-            </div>
-        );
-    }
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  );
 }
 
 export default App;
