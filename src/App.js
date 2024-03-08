@@ -1,42 +1,52 @@
 import React from 'react';
-import { BrowserRouter as Router, useSearchParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useSearchParams } from 'react-router-dom';
 
-// Function to serialize form data into { key: value } pairs.
-function serializeFormQuery(form) {
-  const formData = new FormData(form);
-  const params = Object.fromEntries(formData);
-  return params;
+function Home() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleNavigate = () => {
+    // Set query parameter 'page' to 'about' before navigating
+    setSearchParams({ page: 'about' });
+  };
+
+  return (
+    <div>
+      <h1>Home</h1>
+      <button onClick={handleNavigate}>Go to About</button>
+    </div>
+  );
+}
+
+function About() {
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get('page');
+
+  return (
+    <div>
+      <h1>About</h1>
+      <p>Page: {page}</p>
+    </div>
+  );
 }
 
 function App() {
-  // Destructure searchParams and setSearchParams from useSearchParams hook
-  // const [ setSearchParams] = useSearchParams();
-
-  // Function to handle form submission.
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    // Serialize form data into { key: value } pairs
-    const params = serializeFormQuery(event.target);
-    // setSearchParams(params);
-  }
-
   return (
-    <Router> {/* Wrap the component with Router */}
+    <Router>
       <div>
-        <form onSubmit={handleSubmit}>
-          {/* Input fields for the form */}
-          <label>
-            Query Param 1:
-            <input type="text" name="param1" />
-          </label>
-          <label>
-            Query Param 2:
-            <input type="text" name="param2" />
-          </label>
-          {/* Submit button */}
-          <button type="submit">Submit</button>
-        </form>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </div>
     </Router>
   );

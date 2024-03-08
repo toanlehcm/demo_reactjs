@@ -12,3 +12,5 @@
 ## 132. What is the purpose of push() and replace() methods of history?
 
 ## 134. How to get query parameters in React Router v4?
+
+## 136. How to pass params to history.push method in React Router v4?
