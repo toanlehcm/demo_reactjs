@@ -1,32 +1,16 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useSearchParams } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 
 function Home() {
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const handleNavigate = () => {
-    // Set query parameter 'page' to 'about' before navigating
-    setSearchParams({ page: 'about' });
-  };
-
-  return (
-    <div>
-      <h1>Home</h1>
-      <button onClick={handleNavigate}>Go to About</button>
-    </div>
-  );
+  return <h1>Home</h1>;
 }
 
 function About() {
-  const [searchParams] = useSearchParams();
-  const page = searchParams.get('page');
+  return <h1>About</h1>;
+}
 
-  return (
-    <div>
-      <h1>About</h1>
-      <p>Page: {page}</p>
-    </div>
-  );
+function NotFound() {
+  return <h1>404 - Not Found</h1>;
 }
 
 function App() {
@@ -46,6 +30,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+
+          {/* Define default or NotFound page */}
+          <Route path="*" element={<Navigate to="/404" replace />} />
+          <Route path="/404" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
