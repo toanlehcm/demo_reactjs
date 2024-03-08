@@ -10,3 +10,5 @@
 ## 131. What are the <Router> components of React Router v4?
 
 ## 132. What is the purpose of push() and replace() methods of history?
+
+## 134. How to get query parameters in React Router v4?
