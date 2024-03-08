@@ -1,31 +1,50 @@
 import './App.css';
 import React from 'react';
-import { MemoryRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
+function Home() {
+  return <h1>Home</h1>;
+}
 
-// Define component.
-const Home = () => <h1>Home</h1>;
-const About = () => <h1>About</h1>;
+function NewPage() {
+  return <h1>New Page</h1>;
+}
+
+function AnotherPage() {
+  return <h1>Another Page</h1>;
+}
 
 function App() {
-
   return (
     <Router>
       <div>
-        <nav>
-          <ul>
-            {/* Define navigation links. */}
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/about'>About</Link></li>
-          </ul>
-        </nav>
-
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/new-page" element={<NewPage />} />
+          <Route path="/another-page" element={<AnotherPage />} />
         </Routes>
+        <NavigationButtons />
       </div>
     </Router>
+  );
+}
+
+function NavigationButtons() {
+  const navigate = useNavigate();
+
+  const handlePush = () => {
+    navigate('/new-page');
+  }
+
+  const handleReplace = () => {
+    navigate('/another-page', { replace: true })
+  }
+
+  return (
+    <div>
+      <button onClick={handlePush}>Go to New Page (push)</button>
+      <button onClick={handleReplace}>Go to Another Page (replace)</button>
+    </div>
   );
 }
 
