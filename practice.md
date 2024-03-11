@@ -18,3 +18,5 @@
 ## 137. How to implement default or NotFound page?
 
 ## 138. How to get history on React Router v4?
+
+## 139. How to perform automatic redirect after login?
