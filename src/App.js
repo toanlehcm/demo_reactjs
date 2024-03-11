@@ -1,26 +1,42 @@
-import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-function LoginComponent() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+export default function App() {
+  // Define state to hold the value from localStorage.
+  const [storedValue, setStoredValue] = useState('');
 
-  const handleLogin = () => {
-    // Perform login logic here
-    // For demonstration purposes, we'll just set isLoggedIn to true
-    setIsLoggedIn(true);
-  };
+  // Define a key to store the value in localStorage.
+  const localStorageKey = 'myStorageValue';
 
-  // If user is logged in, automatically redirect to the specified page
-  if (isLoggedIn) {
-    return <Navigate to="/your/redirect/page" />;
+  // Define a function to handle changes to the input value.
+  const handleChange = (event) => {
+    // Update the state with the new value.
+    setStoredValue(event.target.value);
   }
 
-  // If user is not logged in, render the login form
+  // Use useEffect to retrieve the stored value from localStorage on component mount.
+  useEffect(() => {
+    const storedItem = localStorage.getItem(localStorageKey);
+
+    // If a value exists is localStorage, update the state with it.
+    if (storedItem) {
+      setStoredValue(storedItem);
+    }
+  }, [localStorageKey]);
+
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, storedValue)
+  }, [localStorageKey, storedValue]);
+
   return (
     <div>
-      <button onClick={handleLogin}>Login</button>
+      <h1>Local Storage Example</h1>
+      <input
+        type="text"
+        value={storedValue}
+        onChange={handleChange}
+        placeholder="Enter a value..."
+      />
+      <p>Stored Value: {storedValue}</p>
     </div>
   );
 }
-
-export default LoginComponent;
