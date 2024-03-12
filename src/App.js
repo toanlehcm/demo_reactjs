@@ -1,68 +1,51 @@
 import React, { useState, useEffect } from 'react';
 
-function UserForm() {
-  // Define state variables to store user information.
-  const [userData, setUserData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    // Add other fields as needed.
-  });
+function App() {
+  // State variable to store the authentication token
+  const [authToken, setAuthToken] = useState('');
 
-  // Define the key for localStorage.
-  const localStorageKey = 'userData';
-
-  // useEffect to retrieve user data from localStorage on component mount.
+  // Check for authToken in session storage on component mount
   useEffect(() => {
-
-    // Retrieve stored data from localStorage.
-    const storedData = localStorage.getItem(localStorageKey);
-
-    // If stored data exists, parse it and update state.
-    if (storedData) {
-      setUserData(JSON.parse(storedData));
+    const token = sessionStorage.getItem('authToken');
+    if (token) {
+      setAuthToken(token);
     }
-  }, []); // Empty dependency array to run only once on mount.
+  }, []);
 
-  // Function to handle input change and update state.
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserData(prevData => ({
-      ...prevData,
-      [name]: value
-    }));
+  // Function to handle user login
+  const handleLogin = () => {
+    // Simulate a login request and obtain the authentication token
+    const token = 'exampleAuthToken123';
+
+    // Store the authentication token in session storage
+    sessionStorage.setItem('authToken', token);
+    setAuthToken(token);
   };
 
-  // useEffect to update localStorage when user data changes.
-  useEffect(() => {
+  // Function to handle user logout
+  const handleLogout = () => {
+    // Remove the authentication token from session storage
+    sessionStorage.removeItem('authToken');
+    setAuthToken('');
+  };
 
-    // Serialize user data to JSON string before storing.
-    const serializedData = JSON.stringify(userData);
-    localStorage.setItem(localStorageKey, serializedData);
-  }, [userData]); // Run whenever userData changes.
-
+  // Render the UI based on the presence of authToken
   return (
     <div>
-      <h2>User Information Form</h2>
-      <form>
-        <label>
-          Name:
-          <input type="text" name="name" value={userData.name} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Phone:
-          <input type="text" name="phone" value={userData.phone} onChange={handleChange} />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input type="text" name="email" value={userData.email} onChange={handleChange} />
-        </label>
-        {/* Add more input fields for other user information */}
-      </form>
+      <h1>User Authentication Example</h1>
+      {authToken ? (
+        <div>
+          <p>Welcome, User!</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <p>Please login to continue</p>
+          <button onClick={handleLogin}>Login</button>
+        </div>
+      )}
     </div>
   );
 }
 
-export default UserForm;
+export default App;
