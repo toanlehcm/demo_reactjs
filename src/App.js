@@ -1,46 +1,64 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function App() {
-  // State variable to store the authentication token
-  const [authToken, setAuthToken] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
 
-  // Check for authToken in session storage on component mount
+  async function handleLogin() {
+    try {
+      const response = await axios.post('https://js-post-api.herokuapp.com/api/login', { username, password });
+      const { accessToken, expiredAt } = response.data;
+
+      // Store accessToken in a cookie with HttpOnly flag.
+      document.cookie = `accessToken=${accessToken};`;
+
+      setLoggedIn(true);
+    } catch (error) {
+      console.error('login failed', error);
+    }
+  }
+
+  function handleLogout() {
+
+    // Remove accessToken from cookie.
+    document.cookie = 'accessToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
+    setLoggedIn(false);
+  }
+
+  // Check for accessToken on component mount.
   useEffect(() => {
-    const token = sessionStorage.getItem('authToken');
-    if (token) {
-      setAuthToken(token);
+    const accessToken = document.cookie.split('; ').find(row => row.startsWith('accessToken='));
+
+    if (accessToken) {
+      setLoggedIn(true);
     }
   }, []);
 
-  // Function to handle user login
-  const handleLogin = () => {
-    // Simulate a login request and obtain the authentication token
-    const token = 'exampleAuthToken123';
-
-    // Store the authentication token in session storage
-    sessionStorage.setItem('authToken', token);
-    setAuthToken(token);
-  };
-
-  // Function to handle user logout
-  const handleLogout = () => {
-    // Remove the authentication token from session storage
-    sessionStorage.removeItem('authToken');
-    setAuthToken('');
-  };
-
-  // Render the UI based on the presence of authToken
   return (
     <div>
-      <h1>User Authentication Example</h1>
-      {authToken ? (
+      <h2>User Login</h2>
+      {loggedIn ? (
         <div>
           <p>Welcome, User!</p>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
         <div>
-          <p>Please login to continue</p>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
           <button onClick={handleLogin}>Login</button>
         </div>
       )}
