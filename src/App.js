@@ -1,27 +1,9 @@
 import React from 'react';
+import Greeting from './demo';
 
 function App() {
-  let vehicle = {
-    wheels: '4',
-    fuelType: 'Gasoline',
-    color: 'Green'
-  };
-
-  let carProps = {
-    type: {
-      value: 'Volkswagen'
-    },
-    model: {
-      value: 'Golf'
-    },
-    year: { value: '2024' },
-  }
-
-  var car = Object.create(vehicle, carProps);
-  console.log(car);
-
   return (
-    <div></div>
+    <Greeting />
   );
 }
 
