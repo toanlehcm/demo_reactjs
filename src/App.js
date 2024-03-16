@@ -1,23 +1,24 @@
 import React from 'react';
 
 function App() {
-  // Define a constructor function.
-  function Person(name, age) {
-    this.name = name;
-    this.age = age;
+  let vehicle = {
+    wheels: '4',
+    fuelType: 'Gasoline',
+    color: 'Green'
+  };
+
+  let carProps = {
+    type: {
+      value: 'Volkswagen'
+    },
+    model: {
+      value: 'Golf'
+    },
+    year: { value: '2024' },
   }
 
-  // Add a method to the Person prototype.
-  Person.prototype.sayHello = function () {
-    console.log(`my name is ${this.name} and i am ${this.age} years old`);
-  }
-
-  // Create an instance of Person.
-  let john = new Person('John', 30);
-
-  console.log(john.name);
-  console.log(john.age);
-  john.sayHello();
+  var car = Object.create(vehicle, carProps);
+  console.log(car);
 
   return (
     <div></div>
