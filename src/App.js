@@ -1,15 +1,8 @@
 import React from 'react';
+import Question1 from './DemoJS/Question1';
+import Question2 from './DemoJS/Question2';
 
 export default function App() {
 
-  class Person {
-    constructor(name) {
-      this.name = name;
-    }
-  }
-
-  var object = new Person('John');
-  console.log('object', object);
-
-  return (<></>);
+  return (<Question2 />);
 }
