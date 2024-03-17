@@ -1,25 +1,29 @@
 import React from 'react';
 
-function App() {
+export default function App() {
   // Define a function constructor.
-  function Car(make, model, year) {
-    this.make = make;
-    this.model = model;
-    this.year = year;
+  function Person(name, age) {
+    this.name = name;
+    this.age = age;
   }
 
-  // Add a method to the prototype.
-  Car.prototype.drive = function () {
-    console.log(`Driving the ${this.make} ${this.model}`);
+  // Adding a method to the prototype.
+  Person.prototype.sayHello = function () {
+    console.log(`Name is ${this.name} and ${this.age} years old`);
   };
 
-  // Create an instance using the constructor.
-  const myCar = new Car('toyota', 'corolla', 2022);
+  // Create a new instance using Object.create and constructor's prototype.
+  const newInstance = Object.create(Person.prototype);
 
-  // Call method on the instance.
-  myCar.drive();
+  // Call the function with the instance and parameters.
+  var result = Person.call(newInstance, 'John', 30);
+
+  // If the result is a non-null object then use it otherwise just use the new instance.
+  var finalInstance = result && typeof result === 'object' ? result : newInstance;
+
+  console.log('newInstance', newInstance, newInstance.name, newInstance.age, newInstance.sayHello());
+  console.log('result', result);
+  console.log('final', finalInstance, finalInstance.name, finalInstance.age, finalInstance.sayHello());
 
   return (<></>);
 }
-
-export default App;
