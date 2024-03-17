@@ -1,10 +1,16 @@
 import React from 'react';
-import Greeting from './demo';
 
 function App() {
-  return (
-    <Greeting />
-  );
+  function Person() { }
+
+  Person.prototype.name = 'John';
+
+  var object = new Person();
+  console.log('object', object);
+  console.log('object.name', object.name);
+  console.log('object.prototype', object.prototype);
+
+  return (<></>);
 }
 
 export default App;
