@@ -1,7 +1,7 @@
 import React from 'react';
-import Question24 from './DemoJS/Question24';
+import Question27 from './DemoJS/Question27';
 
 export default function App() {
 
-  return (<Question24 />);
+  return (<Question27 />);
 }
