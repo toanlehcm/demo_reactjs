@@ -59,4 +59,7 @@ export default function Question8() {
 
   // Object prototype.
   console.log(Object.getPrototypeOf(obj));
+
+  /*------ Here's a simplified example of how a Map might be implemented internally: ------*/
+  // No sample code.
 }
