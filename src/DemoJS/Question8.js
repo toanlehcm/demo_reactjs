@@ -25,12 +25,14 @@ export default function Question8() {
   console.log('obj', obj);
   obj['z'] = 1;
   obj['a'] = 2;
-  console.log('ob*j', obj);
+  console.log('ob*j', obj.size);
 
   //  Map keys are ordered.
   let map = new Map();
   console.log('map', map);
   map.set('z', 1);
   map.set('a', 2);
-  console.log('map*', map);
+
+  // Getting the size of a Map.
+  console.log('map*', map.size);
 }
