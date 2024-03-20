@@ -2,21 +2,21 @@
 
 export default function QuestionSpread() {
   var arr1 = [..."toan"];
-  console.log(arr1);
-  return (
-    <>
-      <div>
-        arr1:
-        <span> {arr1}</span>
-      </div>
-      <div>
-        arr1-2:
-        {arr1.map((item, idex) => (
-          <span key={idex}> {item}, </span>
-        ))}
-      </div>
-    </>
-  );
+  // console.log(arr1);
+  // return (
+  //   <>
+  //     <div>
+  //       arr1:
+  //       <span> {arr1}</span>
+  //     </div>
+  //     <div>
+  //       arr1-2:
+  //       {arr1.map((item, idex) => (
+  //         <span key={idex}> {item}, </span>
+  //       ))}
+  //     </div>
+  //   </>
+  // );
 
   // ------destructure------
   // var number = [1, 2, 3, 4, 5, 6];
@@ -131,71 +131,71 @@ export default function QuestionSpread() {
   // console.log("objClone1", objClone1);
 
   /*-------  ------*/
-  // var arr1 = ["string", "string"];
-  // var arr2 = [..."string", "string"];
-  // var arr3 = ["string", ..."string"];
-  // var arr4 = [..."string", ..."string"];
-  // var arr5 = ["string string"];
-  // var arr6 = [..."string string"];
+  var arr1 = ["string", "string", 1, 2, 3];
+  var arr2 = [..."string", "string", 1, 2, 3];
+  var arr3 = ["string", ..."string", 1, 2, 3];
+  var arr4 = [..."string", ..."string", 1, 2, 3];
+  var arr5 = ["string string", 1, 2, 3];
+  var arr6 = [..."string string", 1, 2, 3];
 
-  // console.log("arr1", arr1);
-  // console.log("arr2", arr2);
-  // console.log("arr3", arr3);
-  // console.log("arr4", arr4);
-  // console.log("arr5", arr5);
-  // console.log("arr6", arr6);
-  // return (
-  //   <>
-  //     <div> arr1: {arr1}</div>
-  //     <div> arr2: {arr2}</div>
-  //     <div> arr3: {arr3}</div>
-  //     <div> arr4: {arr4}</div>
-  //     <div> arr5: {arr5}</div>
-  //     <div> arr6: {arr6}</div>
+  console.log("arr1", arr1);
+  console.log("arr2", arr2);
+  console.log("arr3", arr3);
+  console.log("arr4", arr4);
+  console.log("arr5", arr5);
+  console.log("arr6", arr6);
+  return (
+    <>
+      <div> arr1: {arr1}</div>
+      <div> arr2: {arr2}</div>
+      <div> arr3: {arr3}</div>
+      <div> arr4: {arr4}</div>
+      <div> arr5: {arr5}</div>
+      <div> arr6: {arr6}</div>
 
-  //     <hr />
+      <hr />
 
-  //     <div>
-  //       arr1:{" "}
-  //       {arr1.map((item, index) => (
-  //         <span key={index}>{item}, </span>
-  //       ))}
-  //     </div>
+      <div>
+        arr1:{" "}
+        {arr1.map((item, index) => (
+          <span key={index}>{item}, </span>
+        ))}
+      </div>
 
-  //     <div>
-  //       arr2:{" "}
-  //       {arr2.map((item, index) => (
-  //         <span key={index}>{item}, </span>
-  //       ))}
-  //     </div>
+      <div>
+        arr2:{" "}
+        {arr2.map((item, index) => (
+          <span key={index}>{item}, </span>
+        ))}
+      </div>
 
-  //     <div>
-  //       arr3:{" "}
-  //       {arr3.map((item, index) => (
-  //         <span key={index}>{item}, </span>
-  //       ))}
-  //     </div>
+      <div>
+        arr3:{" "}
+        {arr3.map((item, index) => (
+          <span key={index}>{item}, </span>
+        ))}
+      </div>
 
-  //     <div>
-  //       arr4:{" "}
-  //       {arr4.map((item, index) => (
-  //         <span key={index}>{item}, </span>
-  //       ))}
-  //     </div>
+      <div>
+        arr4:{" "}
+        {arr4.map((item, index) => (
+          <span key={index}>{item}, </span>
+        ))}
+      </div>
 
-  //     <div>
-  //       arr5:{" "}
-  //       {arr5.map((item, index) => (
-  //         <span key={index}>{item}, </span>
-  //       ))}
-  //     </div>
+      <div>
+        arr5:{" "}
+        {arr5.map((item, index) => (
+          <span key={index}>{item}, </span>
+        ))}
+      </div>
 
-  //     <div>
-  //       arr6:{" "}
-  //       {arr6.map((item, index) => (
-  //         <span key={index}>{item}, </span>
-  //       ))}
-  //     </div>
-  //   </>
-  // );
+      <div>
+        arr6:{" "}
+        {arr6.map((item, index) => (
+          <span key={index}>{item}, </span>
+        ))}
+      </div>
+    </>
+  );
 }
