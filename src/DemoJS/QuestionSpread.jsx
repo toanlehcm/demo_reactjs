@@ -1,39 +1,53 @@
 // https://www.w3schools.com/react/react_es6_spread.asp
 
 export default function QuestionSpread() {
-  // var arr1 = [...'toan'];
-  // console.log(arr1);
-  // return(<div>{arr1}</div>)
-
-  // ------destructure------
-  var number = [1, 2, 3, 4, 5, 6];
-  const [one, two, ...rest] = number;
-  console.log("number", number);
-  console.log("one", one);
-  console.log("two", two);
-  console.log("rest", rest);
+  var arr1 = [..."toan"];
+  console.log(arr1);
   return (
     <>
-      <div>number: {number}</div>
-      <div>one: {one}</div>
-      <div>two: {two}</div>
-      <div>rest: {rest}</div>
-      <hr />
       <div>
-        number:
-        {number.map((item, idx) => {
-          return <span key={idx}> {item}, </span>;
-        })}
+        arr1:
+        <span> {arr1}</span>
       </div>
       <div>
-        rest:
-        {rest.map((item, idx) => {
-          return <span key={idx}> {item}, </span>;
-        })}
+        arr1-2:
+        {arr1.map((item, idex) => (
+          <span key={idex}> {item}, </span>
+        ))}
       </div>
     </>
   );
 
+  // ------destructure------
+  // var number = [1, 2, 3, 4, 5, 6];
+  // const [one, two, ...rest] = number;
+  // console.log("number", number);
+  // console.log("one", one);
+  // console.log("two", two);
+  // console.log("rest", rest);
+  // return (
+  //   <>
+  //     <div>number: {number}</div>
+  //     <div>one: {one}</div>
+  //     <div>two: {two}</div>
+  //     <div>rest: {rest}</div>
+  //     <hr />
+  //     <div>
+  //       number:
+  //       {number.map((item, idx) => {
+  //         return <span key={idx}> {item}, </span>;
+  //       })}
+  //     </div>
+  //     <div>
+  //       rest:
+  //       {rest.map((item, idx) => {
+  //         return <span key={idx}> {item}, </span>;
+  //       })}
+  //     </div>
+  //   </>
+  // );
+
+  // --------------------
   // console.log("arr1", arr1);
   // console.log("arr2", arr2);
   // console.log("arr3", arr3);
