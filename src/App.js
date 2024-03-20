@@ -1,7 +1,7 @@
 import React from 'react';
-import Question27 from './DemoJS/Question27';
+import QuestionSpread from './DemoJS/QuestionSpread';
 
 export default function App() {
 
-  return (<Question27 />);
+  return (<QuestionSpread />);
 }
