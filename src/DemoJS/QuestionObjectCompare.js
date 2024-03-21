@@ -6,6 +6,20 @@ export default function QuestionObjectCompare() {
   objTest = { key: 'value 2' }
   console.log('objTest 2: ', objTest);
 
+  /**
+   * Test change reference.
+   * */
+  var objRefer1 = { key: 'Toan' };
+  var objRefer2 = objRefer1;
+  console.log('---- Test reference-1: ', objRefer1, objRefer2);
+  objRefer1 = { key: 'Toan_new' }
+  console.log('---- Test reference-2: ', objRefer1, objRefer2);
+
+  var objRefer3 = { key: 'John' };
+  var objRefer4 = objRefer3;
+  console.log('---- Test reference-3: ', objRefer3, objRefer4);
+  objRefer4 = { key: 'John_new' }
+  console.log('---- Test reference-4: ', objRefer3, objRefer4);
 
   /**
    * 1. Objects with the same value: 
@@ -16,9 +30,6 @@ export default function QuestionObjectCompare() {
   var obj1 = { key: 'value' };
   var obj2 = { key: 'value' };
   var obj3 = obj2;
-  console.log('---- Test reference-1: ', obj2, obj3);
-  obj3 = {key: 'value 3'}
-  console.log('---- Test reference-2: ', obj2, obj3);
   console.log('Objects with the same value: ', obj1 == obj2, obj1 === obj2, obj1 == obj3, obj1 === obj3, obj2 == obj3, obj2 === obj3);
 
   /**
