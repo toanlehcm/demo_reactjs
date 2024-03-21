@@ -1,14 +1,20 @@
 export default function QuestionArray() {
   // Undefine.
   var arrUndefine1;
-  console.log('undefine: ', arrUndefine1);
+  console.log('arrUndefine1: ', arrUndefine1);
+
+  var arrUndefine1_2 = undefined;
+  console.log('arrUndefine1_2: ', arrUndefine1_2); // arrUndefine1_2[0]=error.
 
   var arrUndefine2 = [undefined];
-  console.log('undefine: ', arrUndefine2, arrUndefine2[0]);
+  console.log('arrUndefine2: ', arrUndefine2, arrUndefine2[0]);
 
   // Null.
-  var arrNull1 = [null];
-  console.log('Null: ', arrNull1, arrNull1[0]);
+  var arrNull1 = null;
+  console.log('arrNull1: ', arrNull1);// arrNull1[0]=error
+
+  var arrNull2 = [null];
+  console.log('arrNull2: ', arrNull2, arrNull2[0]);
 
   // Empty.
   var arrEmpty1 = [];
