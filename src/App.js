@@ -1,7 +1,7 @@
 import React from 'react';
-import QuestionArray from './DemoJS/QuestionArray';
+import QuestionObject from './DemoJS/QuestionObject';
 
 export default function App() {
 
-  return (<QuestionArray />);
+  return (<QuestionObject />);
 }
