@@ -1,7 +1,7 @@
 import React from 'react';
-import StoredByValueAnhReference from './DemoJS/StoredByValueAnhReference';
+import DemoReactQuery from './DemoReactQuery';
 
 export default function App() {
 
-  return (<StoredByValueAnhReference />);
+  return (<DemoReactQuery />);
 }
