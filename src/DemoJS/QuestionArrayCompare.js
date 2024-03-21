@@ -15,6 +15,10 @@ export default function QuestionArrayCompare() {
   var arrSame1 = [1, 2, 3];
   var arrSame2 = [1, 2, 3];
   var arrSame3 = arrSame2;
+  console.log('---- Test reference-1: ', arrSame2, arrSame3);
+  arrSame3 = [1, 2];
+  console.log('---- Test reference-2: ', arrSame2, arrSame3);
+
   console.log('------ 1. Arrays with the same values: ',
     arrSame1 == arrSame2, arrSame1 === arrSame2,
     arrSame1 == arrSame3, arrSame1 === arrSame3,
