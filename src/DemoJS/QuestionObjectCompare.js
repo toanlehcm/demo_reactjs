@@ -1,4 +1,4 @@
-export default function QuestionObject() {
+export default function QuestionObjectCompare() {
   // 
   var objTest = { key: 'value' };
   console.log('objTest: ', objTest);
