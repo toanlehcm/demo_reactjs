@@ -13,9 +13,12 @@ export default function QuestionObjectCompare() {
    * they will not be considered equal because each object is stored in a different location in memory. 
    * JavaScript compares objects by reference, not by their contents.
    */
-  const obj1 = { key: 'value' };
-  const obj2 = { key: 'value' };
-  const obj3 = obj2;
+  var obj1 = { key: 'value' };
+  var obj2 = { key: 'value' };
+  var obj3 = obj2;
+  console.log('---- Test reference-1: ', obj2, obj3);
+  obj3 = {key: 'value 3'}
+  console.log('---- Test reference-2: ', obj2, obj3);
   console.log('Objects with the same value: ', obj1 == obj2, obj1 === obj2, obj1 == obj3, obj1 === obj3, obj2 == obj3, obj2 === obj3);
 
   /**
