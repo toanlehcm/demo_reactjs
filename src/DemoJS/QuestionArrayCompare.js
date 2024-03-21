@@ -9,16 +9,27 @@ export default function QuestionArrayCompare() {
   console.log('arrTest update 2:', arrTest);
 
   /**
+   * Test compare array by reference.
+   * */
+  var arrRefer1 = [1, 2, 3];
+  var arrRefer2 = arrRefer1;
+  console.log('---- Test reference-1: ', arrRefer1, arrRefer2);
+  arrRefer1 = [1, 2];
+  console.log('---- Test reference-2: ', arrRefer1, arrRefer2);
+
+  var arrRefer3 = [4, 5, 6];
+  var arrRefer4 = arrRefer3;
+  console.log('---- Test reference-3: ', arrRefer3, arrRefer4);
+  arrRefer4 = [7, 8];
+  console.log('---- Test reference-4: ', arrRefer3, arrRefer4);
+
+  /**
    * 1. Arrays with the same values: 
    * Two arrays with identical elements in the same order are considered equal.
    * */
   var arrSame1 = [1, 2, 3];
   var arrSame2 = [1, 2, 3];
   var arrSame3 = arrSame2;
-  console.log('---- Test reference-1: ', arrSame2, arrSame3);
-  arrSame3 = [1, 2];
-  console.log('---- Test reference-2: ', arrSame2, arrSame3);
-
   console.log('------ 1. Arrays with the same values: ',
     arrSame1 == arrSame2, arrSame1 === arrSame2,
     arrSame1 == arrSame3, arrSame1 === arrSame3,

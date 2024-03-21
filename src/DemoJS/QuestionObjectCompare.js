@@ -7,7 +7,7 @@ export default function QuestionObjectCompare() {
   console.log('objTest 2: ', objTest);
 
   /**
-   * Test change reference.
+   * Test compare object by reference.
    * */
   var objRefer1 = { key: 'Toan' };
   var objRefer2 = objRefer1;
