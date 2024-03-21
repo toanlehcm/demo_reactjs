@@ -1,7 +1,7 @@
 import React from 'react';
-import QuestionArrayCompare from './DemoJS/QuestionArrayCompare';
+import ReferenceInJS from './DemoJS/ReferenceInJS';
 
 export default function App() {
 
-  return (<QuestionArrayCompare />);
+  return (<ReferenceInJS />);
 }
