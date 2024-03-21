@@ -1,5 +1,20 @@
 export default function QuestionStringCompare() {
   /**
+   * Test change of string value in JS.
+   * */
+  var strValue1 = "hello";
+  var strValue2 = strValue1;
+  console.log('----Test string-1:', strValue1, strValue2);
+  strValue2 = 'hi';
+  console.log('----Test string-2:', strValue1, strValue2);
+
+  var strValue3 = 'how are you';
+  var strValue4 = strValue3;
+  console.log('----Test string-3:', strValue3, strValue4);
+  strValue3 = 'fine'
+  console.log('----Test string-4:', strValue3, strValue4);
+
+  /**
    * 1. Equality (===): 
    * This checks if two strings are exactly equal, including their characters and case.
    * */

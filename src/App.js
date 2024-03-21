@@ -1,7 +1,7 @@
 import React from 'react';
-import QuestionArrayCompare from './DemoJS/QuestionArrayCompare';
+import QuestionStringCompare from './DemoJS/QuestionStringCompare';
 
 export default function App() {
 
-  return (<QuestionArrayCompare />);
+  return (<QuestionStringCompare />);
 }
