@@ -1,7 +1,7 @@
 import React from 'react';
-import ReferenceInJS from './DemoJS/ReferenceInJS';
+import StoredByValueAnhReference from './DemoJS/StoredByValueAnhReference';
 
 export default function App() {
 
-  return (<ReferenceInJS />);
+  return (<StoredByValueAnhReference />);
 }
