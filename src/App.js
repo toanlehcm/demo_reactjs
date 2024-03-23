@@ -1,7 +1,7 @@
 import React from 'react';
-import TwoSum from './LeetCode/TwoSum';
+import RemoveDuplicatesFromSortedArrayII from './LeetCode/RemoveDuplicatesFromSortedArrayII';
 
 export default function App() {
 
-  return (<TwoSum />);
+  return (<RemoveDuplicatesFromSortedArrayII />);
 }
