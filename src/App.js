@@ -1,7 +1,7 @@
 import React from 'react';
-import RemoveDuplicatesFromSortedArrayII from './LeetCode/RemoveDuplicatesFromSortedArrayII';
+import CommonlyExercises from './LeetCode/CommonlyExercises';
 
 export default function App() {
 
-  return (<RemoveDuplicatesFromSortedArrayII />);
+  return (<CommonlyExercises />);
 }
