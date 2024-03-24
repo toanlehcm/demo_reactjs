@@ -73,7 +73,7 @@ export default function CommonlyExercises() {
 
     // Convert the number to a string, then split it into an array of individual digits. Example: 123 => ['1', '2', '3']
     let digitsArray = n.toString().split('');
-    console.log(digitsArray);
+    // console.log(digitsArray);
 
     // Use the reduce method to iterate over each digit in the array and calculate the sum.
     // Initialize the accumulator 'acc' to 0.
@@ -82,8 +82,21 @@ export default function CommonlyExercises() {
     let sum = digitsArray.reduce((acc, digit) => acc + parseInt(digit), 0);
 
     // Return the sum of digits.
-    console.log(sum);
+    // console.log(sum);
   }
 
   sumOfDigits(12345);
+
+  /**
+   * 6. Anagram Check (kiểm tra đảo chữ):
+    Check if two given strings are anagrams of each other.
+   * */
+  function anagramCheck(str1, str2) {
+    // console.log(str1, str2.split('').reverse().join(''), str1=== str2.split('').reverse().join(''));
+
+    var str1Sort = str1.split('').sort().join('');
+    var str2Sort = str2.split('').sort().join('');
+    console.log(str1Sort, str2Sort, str1Sort === str2Sort);
+  }
+  anagramCheck('toan', 'naot');
 }
