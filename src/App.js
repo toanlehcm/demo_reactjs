@@ -1,7 +1,7 @@
 import React from 'react';
-import QuestionObjectCompare from './DemoJS/QuestionObjectCompare';
+import CustomAttribute from './DemoHTML/CustomAttribute';
 
 export default function App() {
 
-  return (<QuestionObjectCompare />);
+  return (<CustomAttribute />);
 }
