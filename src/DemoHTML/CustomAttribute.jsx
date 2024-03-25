@@ -6,6 +6,10 @@ export default function CustomAttribute(params) {
     var element = document.getElementById("myElement");
     var customAttributeValue = element.dataset.customAttribute;
     console.log(element.dataset, customAttributeValue);
+
+    var adjustElement = document.getElementById("adjustElement");
+    var adjustAttributeValue = adjustElement.dataset.adjustAttribute;
+    console.log(adjustElement.dataset, adjustAttributeValue);
   }, []);
 
   /**
@@ -13,8 +17,14 @@ export default function CustomAttribute(params) {
    * Bạn có thể truy xuất và sử dụng giá trị của thuộc tính dữ liệu này trong mã JavaScript hoặc CSS.
    * */
   return (
-    <div id="myElement" data-custom-attribute="someValue">
-      This is a custom attribute
-    </div>
+    <>
+      <div id="myElement" data-custom-attribute="someValue">
+        This is a custom attribute
+      </div>
+
+      <div id="adjustElement" data-adjust-attribute="adjust-Value">
+        This is a adjust attribute
+      </div>
+    </>
   );
 }

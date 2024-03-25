@@ -1,3 +1,7 @@
 [data-custom-attribute="someValue"] {
   color: red;
 }
+
+[data-adjust-attribute="adjust-Value"] {
+  color: green;
+}
