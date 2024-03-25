@@ -1,10 +1,10 @@
 export default function QuestionObjectCompare() {
   // 
   var objTest = { key: 'value' };
-  console.log('objTest: ', objTest);
+  // console.log('objTest: ', objTest);
 
   objTest = { key: 'value 2' }
-  console.log('objTest 2: ', objTest);
+  // console.log('objTest 2: ', objTest);
 
   /**
    * Test compare object by reference.
@@ -12,13 +12,13 @@ export default function QuestionObjectCompare() {
   var objRefer1 = { key: 'Toan' };
   var objRefer2 = objRefer1;
   console.log('---- Test reference-1: ', objRefer1, objRefer2);
-  objRefer1 = { key: 'Toan_new' }
+  objRefer2 = { key: 'Toan_new' }
   console.log('---- Test reference-2: ', objRefer1, objRefer2);
 
   var objRefer3 = { key: 'John' };
   var objRefer4 = objRefer3;
   console.log('---- Test reference-3: ', objRefer3, objRefer4);
-  objRefer4 = { key: 'John_new' }
+  objRefer4.key = 'John_new'
   console.log('---- Test reference-4: ', objRefer3, objRefer4);
 
   /**
@@ -30,7 +30,7 @@ export default function QuestionObjectCompare() {
   var obj1 = { key: 'value' };
   var obj2 = { key: 'value' };
   var obj3 = obj2;
-  console.log('Objects with the same value: ', obj1 == obj2, obj1 === obj2, obj1 == obj3, obj1 === obj3, obj2 == obj3, obj2 === obj3);
+  // console.log('Objects with the same value: ', obj1 == obj2, obj1 === obj2, obj1 == obj3, obj1 === obj3, obj2 == obj3, obj2 === obj3);
 
   /**
    * 2. Objects with different values: 
@@ -40,7 +40,7 @@ export default function QuestionObjectCompare() {
   var obj4 = { key: "value4" }
   var obj5 = { key: "value5" }
   var obj6 = obj5;
-  console.log('Objects with the different value: ', obj4 == obj5, obj4 === obj5, obj4 == obj6, obj4 === obj6, obj5 == obj6, obj5 === obj6);
+  // console.log('Objects with the different value: ', obj4 == obj5, obj4 === obj5, obj4 == obj6, obj4 === obj6, obj5 == obj6, obj5 === obj6);
 
   /**
    * 3. Objects with nested objects: 
@@ -50,8 +50,8 @@ export default function QuestionObjectCompare() {
   var objNested1 = { nested: { key: 'value' } };
   var objNested2 = { nested: { key: 'value' } };
   var objNested3 = objNested2;
-  console.log('Objects with the nested object: ', objNested1, objNested1 == objNested2, objNested1 === objNested2, objNested1 == objNested3, objNested1 === objNested3,
-    objNested2 == objNested3, objNested2 === objNested3);
+  // console.log('Objects with the nested object: ', objNested1, objNested1 == objNested2, objNested1 === objNested2, objNested1 == objNested3, objNested1 === objNested3,
+  // objNested2 == objNested3, objNested2 === objNested3);
 
   /**
    * 4. Objects with arrays: 
@@ -62,17 +62,17 @@ export default function QuestionObjectCompare() {
   var objWithArr1 = { arr: [1, 2, 3] };
   var objWithArr1 = { arr: [4, 5, 6] };
   var objWithArr1 = { arr: [7, 8, 9] };
-  console.log('objWithArr1', objWithArr1);
+  // console.log('objWithArr1', objWithArr1);
 
   var objWithArr2 = { arr: [1, 2, 3] };
   var objWithArr2 = { arr: [4, 5] };
   var objWithArr2 = { arr: [6] };
-  console.log('objWithArr2', objWithArr2);
+  // console.log('objWithArr2', objWithArr2);
 
   var objWithArr3 = { arr: [7, 8, 9] };
   var objWithArr4 = objWithArr3;
-  console.log('Objects with arrays: ', objWithArr1, objWithArr1 == objWithArr3, objWithArr1 === objWithArr3, objWithArr1 == objWithArr4, objWithArr1 === objWithArr4,
-    objWithArr3 == objWithArr4, objWithArr3 === objWithArr4);
+  // console.log('Objects with arrays: ', objWithArr1, objWithArr1 == objWithArr3, objWithArr1 === objWithArr3, objWithArr1 == objWithArr4, objWithArr1 === objWithArr4,
+  // objWithArr3 == objWithArr4, objWithArr3 === objWithArr4);
 
   /**
    * 5. Objects with different order of properties: 
@@ -83,8 +83,8 @@ export default function QuestionObjectCompare() {
   var objOrder1 = { a: 1, b: 2 };
   var objOrder2 = { b: 2, a: 1 };
   var objOrder3 = objOrder2;
-  console.log('Objects with different order of properties: ', objOrder1, objOrder1 == objOrder2, objOrder1 === objOrder2, objOrder1 == objOrder3, objOrder1 === objOrder3,
-    objOrder2 == objOrder3, objOrder2 === objOrder3);
+  // console.log('Objects with different order of properties: ', objOrder1, objOrder1 == objOrder2, objOrder1 === objOrder2, objOrder1 == objOrder3, objOrder1 === objOrder3,
+  // objOrder2 == objOrder3, objOrder2 === objOrder3);
 
   /**
    * 6. Objects with different number of properties: 
@@ -94,8 +94,8 @@ export default function QuestionObjectCompare() {
   var objNumberOf1 = { a: 1, b: 2 };
   var objNumberOf2 = { a: 1 };
   var objNumberOf3 = objNumberOf2;
-  console.log('Objects with different number of properties: ', objNumberOf1, objNumberOf1 == objNumberOf2, objNumberOf1 === objNumberOf2, objNumberOf1 == objNumberOf3, objNumberOf1 === objNumberOf3,
-    objNumberOf2 == objNumberOf3, objNumberOf2 === objNumberOf3);
+  // console.log('Objects with different number of properties: ', objNumberOf1, objNumberOf1 == objNumberOf2, objNumberOf1 === objNumberOf2, objNumberOf1 == objNumberOf3, objNumberOf1 === objNumberOf3,
+  // objNumberOf2 == objNumberOf3, objNumberOf2 === objNumberOf3);
 
   /**
    * 7. Objects with null value: 
@@ -106,8 +106,8 @@ export default function QuestionObjectCompare() {
   var objNull2 = { key: null };
   var objNull3 = objNull2;
   var objNull4 = { key: undefined };
-  console.log('Objects with null value: ', objNull1, objNull1 == objNull2, objNull1 === objNull2, objNull1 == objNull3, objNull1 === objNull3, objNull2 == objNull3, objNull2 === objNull3);
-  console.log('Objects with null value: ', objNull4, objNull1 == objNull4, objNull1 === objNull4);
+  // console.log('Objects with null value: ', objNull1, objNull1 == objNull2, objNull1 === objNull2, objNull1 == objNull3, objNull1 === objNull3, objNull2 == objNull3, objNull2 === objNull3);
+  // console.log('Objects with null value: ', objNull4, objNull1 == objNull4, objNull1 === objNull4);
 
   /**
    * 8. Objects with undefined value: 
@@ -117,8 +117,8 @@ export default function QuestionObjectCompare() {
   var objUndefine1 = { key: undefined };
   var objUndefine2 = { key: undefined };
   var objUndefine3 = objUndefine2;
-  console.log('Objects with undefine value: ', objUndefine1, objUndefine1 == objUndefine2, objUndefine1 === objUndefine2, objUndefine1 == objUndefine3, objUndefine1 === objUndefine3,
-    objUndefine2 == objUndefine3, objUndefine2 === objUndefine3);
+  // console.log('Objects with undefine value: ', objUndefine1, objUndefine1 == objUndefine2, objUndefine1 === objUndefine2, objUndefine1 == objUndefine3, objUndefine1 === objUndefine3,
+  // objUndefine2 == objUndefine3, objUndefine2 === objUndefine3);
 
   /**
    * 9. Objects with the same reference: 
@@ -127,5 +127,5 @@ export default function QuestionObjectCompare() {
    * */
   const obj17 = { key: 'value' };
   const obj18 = obj17;
-  console.log('Objects with the same reference: ', obj17 == obj18, obj17 === obj18); // true
+  // console.log('Objects with the same reference: ', obj17 == obj18, obj17 === obj18); // true
 }

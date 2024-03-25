@@ -1,7 +1,7 @@
 import React from 'react';
-import CommonlyExercises from './LeetCode/CommonlyExercises';
+import QuestionObjectCompare from './DemoJS/QuestionObjectCompare';
 
 export default function App() {
 
-  return (<CommonlyExercises />);
+  return (<QuestionObjectCompare />);
 }
