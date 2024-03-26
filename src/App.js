@@ -1,7 +1,7 @@
 import React from 'react';
-import ArrowAndRegularFunctions from './DemoJS/ArrowAndRegularFunctions';
+import DemoAPI from './DemoJS/DemoAPI';
 
 export default function App() {
 
-  return (<ArrowAndRegularFunctions />);
+  return (<DemoAPI />);
 }
