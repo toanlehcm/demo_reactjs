@@ -1,4 +1,16 @@
 export default function QuestionObjectCompare() {
+  let myObject = {
+    name: 'John',
+    age: 30,
+    address: {
+      city: 'New York',
+      country: 'USA'
+    }
+  };
+  console.log('myObject.name', myObject.name); // Output: 'John'
+  console.log(myObject['age']); // Output: 30
+  console.log(myObject['address'].city);
+
   // 
   var objTest = { key: 'value' };
   // console.log('objTest: ', objTest);
@@ -11,15 +23,15 @@ export default function QuestionObjectCompare() {
    * */
   var objRefer1 = { key: 'Toan' };
   var objRefer2 = objRefer1;
-  console.log('---- Test reference-1: ', objRefer1, objRefer2);
+  // console.log('---- Test reference-1: ', objRefer1, objRefer2);
   objRefer2 = { key: 'Toan_new' }
-  console.log('---- Test reference-2: ', objRefer1, objRefer2);
+  // console.log('---- Test reference-2: ', objRefer1, objRefer2);
 
   var objRefer3 = { key: 'John' };
   var objRefer4 = objRefer3;
-  console.log('---- Test reference-3: ', objRefer3, objRefer4);
+  // console.log('---- Test reference-3: ', objRefer3, objRefer4);
   objRefer4.key = 'John_new'
-  console.log('---- Test reference-4: ', objRefer3, objRefer4);
+  // console.log('---- Test reference-4: ', objRefer3, objRefer4);
 
   /**
    * 1. Objects with the same value: 

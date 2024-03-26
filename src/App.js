@@ -1,7 +1,7 @@
 import React from 'react';
-import CompareNullAndUndeFined from './DemoJS/CompareNullAndUndeFined';
+import QuestionObjectCompare from './DemoJS/QuestionObjectCompare';
 
 export default function App() {
 
-  return (<CompareNullAndUndeFined />);
+  return (<QuestionObjectCompare />);
 }
