@@ -1,7 +1,24 @@
 export default function QuestionObjectCompare() {
+  /*-----------What is hoisting. ------------*/
+  /*----- Hoisting variable -----*/
+  console.log(message_1, message_2); //message_3, message_4 
+  var message_1;
+  // console.log(message_1);
+  // message_1 = "The variable Has been hoisted";
+  var message_2 = 'message';
+  // let message_3; // hoisting will error.
+  const message_4 = 'message_3'; // hoisting will error.
+
+  /*----- Hoisting function. -----*/
+  callMessage('hello');
+
+  function callMessage(message) {
+    console.log(message);
+  }
+
   /*-----------Test define variable. ------------*/
   var a; let b; const c = 1;
-  console.log(a, b, c);
+  // console.log(a, b, c);
 
   /*-----------Add properties for object.------------*/
   var a = { name: 'toan' };
