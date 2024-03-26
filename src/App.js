@@ -1,7 +1,7 @@
 import React from 'react';
-import VariablesInPureCSS from './DemoHTML/VariablesInPureCSS';
+import CompareNullAndUndeFined from './DemoJS/CompareNullAndUndeFined';
 
 export default function App() {
 
-  return (<VariablesInPureCSS />);
+  return (<CompareNullAndUndeFined />);
 }
