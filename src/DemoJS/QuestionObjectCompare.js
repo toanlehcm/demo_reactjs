@@ -1,4 +1,11 @@
 export default function QuestionObjectCompare() {
+  /*-----------Add properties for object.------------*/
+  var a = { name: 'toan' };
+  a.age = 30;
+  a['job'] = 'dev';
+  console.log(a);
+
+  /*-----------The ways to get properties of object.------------*/
   let myObject = {
     name: 'John',
     age: 30,
@@ -7,11 +14,11 @@ export default function QuestionObjectCompare() {
       country: 'USA'
     }
   };
-  console.log('myObject.name', myObject.name); // Output: 'John'
-  console.log(myObject['age']); // Output: 30
-  console.log(myObject['address'].city);
+  // console.log('myObject.name', myObject.name); // Output: 'John'
+  // console.log(myObject['age']); // Output: 30
+  // console.log(myObject['address'].city);
 
-  // 
+  /*-----------------------*/
   var objTest = { key: 'value' };
   // console.log('objTest: ', objTest);
 
