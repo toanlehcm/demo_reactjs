@@ -1,7 +1,7 @@
 import React from 'react';
-import QuestionObjectCompare from './DemoJS/QuestionObjectCompare';
+import ArrowAndRegularFunctions from './DemoJS/ArrowAndRegularFunctions';
 
 export default function App() {
 
-  return (<QuestionObjectCompare />);
+  return (<ArrowAndRegularFunctions />);
 }
