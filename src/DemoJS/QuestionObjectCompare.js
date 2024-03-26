@@ -1,20 +1,36 @@
 export default function QuestionObjectCompare() {
   /*-----------What is hoisting. ------------*/
+
   /*----- Hoisting variable -----*/
-  console.log(message_1, message_2); //message_3, message_4 
+
+  // console.log(message_1, message_2); //message_3, message_4 
   var message_1;
   // console.log(message_1);
   // message_1 = "The variable Has been hoisted";
+
   var message_2 = 'message';
   // let message_3; // hoisting will error.
   const message_4 = 'message_3'; // hoisting will error.
 
   /*----- Hoisting function. -----*/
-  callMessage('hello');
 
+  /*- Function declaration (hoisted) -*/
+  // callMessage('hello');
   function callMessage(message) {
     console.log(message);
   }
+
+  handleFunction('message hoisting');
+  function handleFunction(message) {
+    console.log(message);
+  }
+
+  /*- Function expression (not hoisted) -*/
+  // var handleFunction = function callHandleFunction(message) {
+  //   console.log(message);
+  // }
+
+  // handleFunction('message hoisting');
 
   /*-----------Test define variable. ------------*/
   var a; let b; const c = 1;
