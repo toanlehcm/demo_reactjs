@@ -1,3 +1,4 @@
+/*----- CSS variables -----*/
 :root {
   --primary-color: #007bff;
   --secondary-color: #cee3f6;
@@ -6,4 +7,26 @@
 .style-text {
   color: var(--primary-color);
   background-color: var(--secondary-color);
+}
+
+/*----- Using inherit -----*/
+.primary-color {
+  color: #ff6200;
+}
+
+.element {
+  color: inherit;
+}
+
+/*------ Using Hack Selector ------*/
+.color-main {
+  color: red;
+}
+
+.color-main[data-color="custom-color"] {
+  color: #00ff11;
+}
+
+.color-main[data-color="adjust-color"] {
+  color: #a922bd;
 }
