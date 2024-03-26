@@ -25,6 +25,19 @@ export default function CustomAttribute(params) {
       <div id="adjustElement" data-adjust-attribute="adjust-Value">
         This is a adjust attribute
       </div>
+
+      <div id="A" className="B">
+        test
+      </div>
+
+      {/* ------------ */}
+      <div className="divCSS">
+        <p className="pCSS">Paragraph 1 in the div.</p>
+        <p className="pCSS">Paragraph 2 in the div.</p>
+        <section>
+          <p className="pCSS">Paragraph 3 in the div.</p>
+        </section>
+      </div>
     </>
   );
 }

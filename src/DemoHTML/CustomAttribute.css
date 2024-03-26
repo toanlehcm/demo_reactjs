@@ -5,3 +5,19 @@
 [data-adjust-attribute="adjust-Value"] {
   color: green;
 }
+
+div {
+  color: blue;
+}
+
+#A {
+  color: red;
+}
+
+.B {
+  color: green;
+}
+
+.divCSS .pCSS {
+  background-color: yellow;
+}
