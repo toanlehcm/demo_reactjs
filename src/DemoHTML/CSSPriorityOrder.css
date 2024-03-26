@@ -1,0 +1,52 @@
+/* <!-- 8. Tag --> */
+div {
+  color: aqua;
+}
+
+/* 7. Tag nesting */
+div p {
+  color: green;
+}
+
+/* 6. Class */
+.text {
+  color: blue;
+}
+
+/* 5. Class inline */
+.text.class-inline {
+  color: bisque;
+}
+
+#class_text_with {
+  color: burlywood;
+}
+
+/* 5. Class nesting */
+.text .class-nesting {
+  color: orange;
+}
+
+#nesting_style {
+  color: blueviolet;
+}
+
+/* 4. ID */
+#myId {
+  color: red;
+}
+
+/* 3. ID nesting */
+#container_small #myId {
+  color: purple;
+}
+
+/* 2. Inline */
+.style-inline {
+  color: pink;
+}
+
+/* 1. Value defined as Important */
+#important {
+  color: yellow !important;
+}

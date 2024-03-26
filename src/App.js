@@ -1,7 +1,7 @@
 import React from 'react';
-import CustomAttribute from './DemoHTML/CustomAttribute';
+import CSSPriorityOrder from './DemoHTML/CSSPriorityOrder';
 
 export default function App() {
 
-  return (<CustomAttribute />);
+  return (<CSSPriorityOrder />);
 }
