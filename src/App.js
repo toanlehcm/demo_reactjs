@@ -1,7 +1,7 @@
 import React from 'react';
-import CSSPriorityOrder from './DemoHTML/CSSPriorityOrder';
+import VariablesInPureCSS from './DemoHTML/VariablesInPureCSS';
 
 export default function App() {
 
-  return (<CSSPriorityOrder />);
+  return (<VariablesInPureCSS />);
 }
