@@ -1,9 +1,13 @@
 export default function QuestionObjectCompare() {
+  /*-----------Test define variable. ------------*/
+  var a; let b; const c = 1;
+  console.log(a, b, c);
+
   /*-----------Add properties for object.------------*/
   var a = { name: 'toan' };
   a.age = 30;
   a['job'] = 'dev';
-  console.log(a);
+  // console.log(a);
 
   /*-----------The ways to get properties of object.------------*/
   let myObject = {
