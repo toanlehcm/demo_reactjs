@@ -2,7 +2,16 @@
 
 export default function DemoAPI(params) {
   /*--- Use the fetch() function. ---*/
-  fetch('https://js-post-api.herokuapp.com/api/posts?_page=1&limit=10')
+  fetch('https://js-post-api.herokuapp.com/api/posts?_page=1&limit=10', {
+    method: "GET",
+    headers: {
+      'Content-type': 'application/json',
+      'Authorization': 'Bearer your-access-token'
+    },
+    // body: JSON.stringify({
+    //   key: 'value'
+    // })
+  })
     .then(response => {
       // Check if the response is successful
       if (!response.ok) {
