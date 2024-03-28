@@ -1,7 +1,7 @@
 import React from 'react';
-import DemoTypeOf from './DemoJS/DemoTypeOf';
+import QuestionLogOutDuplicateNumbers from './DemoJS/QuestionLogOutDuplicateNumbers';
 
 export default function App() {
 
-  return (<DemoTypeOf />);
+  return (<QuestionLogOutDuplicateNumbers />);
 }
