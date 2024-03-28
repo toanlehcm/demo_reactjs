@@ -1,7 +1,7 @@
 import React from 'react';
-import QuestionObjectCompare from './DemoJS/QuestionObjectCompare';
+import DemoThis from './DemoJS/DemoThis';
 
 export default function App() {
 
-  return (<QuestionObjectCompare />);
+  return (<DemoThis />);
 }
