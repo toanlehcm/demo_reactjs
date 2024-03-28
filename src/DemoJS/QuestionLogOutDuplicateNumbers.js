@@ -1,8 +1,8 @@
 export default function QuestionLogOutDuplicateNumbers() {
+  /*--- Đếm số lần xuất hiện của mỗi phần tử trong mảng và lưu vào hashmap ---*/
   const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2];
   const frequencyMap = {};
 
-  /*--- Đếm số lần xuất hiện của mỗi phần tử trong mảng và lưu vào hashmap ---*/
   arr.forEach(num => {
     if (frequencyMap[num]) {
       frequencyMap[num]++;
