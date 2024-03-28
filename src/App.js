@@ -1,7 +1,7 @@
 import React from 'react';
-import DemoPromise from './DemoJS/DemoPromise';
+import DemoTypeOf from './DemoJS/DemoTypeOf';
 
 export default function App() {
 
-  return (<DemoPromise />);
+  return (<DemoTypeOf />);
 }
