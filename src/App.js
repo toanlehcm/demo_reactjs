@@ -1,7 +1,7 @@
 import React from 'react';
-import DemoThis from './DemoJS/DemoThis';
+import DemoClosure from './DemoJS/DemoClosure';
 
 export default function App() {
 
-  return (<DemoThis />);
+  return (<DemoClosure />);
 }
