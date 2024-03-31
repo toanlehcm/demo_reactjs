@@ -1,6 +1,8 @@
+/* The container is not large enough to hold all the elements */
 .container-not-enough-space {
-  width: 300px; /* The container is not large enough to hold all the elements */
+  width: 300px;
   border: 1px solid red;
+  display: none;
 }
 
 .container-not-enough-space .inline-block-element {
@@ -12,9 +14,11 @@
   border: 1px solid green;
 }
 
+/* The container is large enough to hold all the elements */
 .container-white-space {
-  width: 400px; /* The container is large enough to hold all the elements */
+  width: 400px;
   border: 1px solid red;
+  display: none;
 }
 
 .container-white-space .inline-block-element {
@@ -23,4 +27,25 @@
   height: 50px;
   background-color: lightblue;
   margin: 5px;
+}
+
+/* The container is large enough to hold both elements. */
+.container-inconsistent-size {
+  width: 200px;
+  border: 1px solid red;
+}
+
+.container-inconsistent-size .inline-block-element {
+  display: inline-block;
+  height: 50px;
+  background-color: lightblue;
+  margin: 5px;
+}
+
+.container-inconsistent-size .large {
+  width: 200px; /* large element. */
+}
+
+.container-inconsistent-size .small {
+  width: 100px; /* small element. */
 }
