@@ -1,7 +1,7 @@
 import React from 'react';
-import QuestionLogOutDuplicateNumbers from './DemoJS/QuestionLogOutDuplicateNumbers';
+import MarginPadding from './DemoHTML/MarginPadding';
 
 export default function App() {
 
-  return (<QuestionLogOutDuplicateNumbers />);
+  return (<MarginPadding />);
 }
