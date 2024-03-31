@@ -1,0 +1,11 @@
+.container {
+  height: 500px;
+  text-align: center; /* Canh giữa theo chiều ngang */
+  border: 1px solid red;
+}
+
+.container img {
+  margin: auto; /* Canh giữa theo chiều ngang và dọc */
+  display: block; /* Để margin: auto hoạt động */
+  border: 1px solid green;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import InlineBlock from './DemoHTML/InlineBlock';
+import Display from './DemoHTML/Display';
 
 export default function App() {
 
-  return (<InlineBlock />);
+  return (<Display />);
 }
