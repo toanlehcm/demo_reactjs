@@ -1,13 +1,26 @@
-.container {
+.container-not-enough-space {
   width: 300px; /* The container is not large enough to hold all the elements */
   border: 1px solid red;
 }
 
-.inline-block-element {
+.container-not-enough-space .inline-block-element {
   display: inline-block;
   width: 100px;
   height: 50px;
   background-color: lightblue;
   margin: 5px;
   border: 1px solid green;
+}
+
+.container-white-space {
+  width: 400px; /* The container is large enough to hold all the elements */
+  border: 1px solid red;
+}
+
+.container-white-space .inline-block-element {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  background-color: lightblue;
+  margin: 5px;
 }
