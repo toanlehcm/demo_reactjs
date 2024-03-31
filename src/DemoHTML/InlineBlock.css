@@ -1,0 +1,13 @@
+.container {
+  width: 300px; /* The container is not large enough to hold all the elements */
+  border: 1px solid red;
+}
+
+.inline-block-element {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  background-color: lightblue;
+  margin: 5px;
+  border: 1px solid green;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
-import MarginPadding from './DemoHTML/MarginPadding';
+import InlineBlock from './DemoHTML/InlineBlock';
 
 export default function App() {
 
-  return (<MarginPadding />);
+  return (<InlineBlock />);
 }
