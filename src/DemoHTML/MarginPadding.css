@@ -1,9 +1,13 @@
+.div-parent{
+  display: flex;
+}
+
 .div1 {
-  margin-bottom: 30px;
+  margin-right: 30px;
   border: 1px solid red;
 }
 
 .div2 {
-  margin-top: 20px;
+  margin-left: 20px;
   border: 1px solid green;
 }
