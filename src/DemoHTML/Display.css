@@ -1,5 +1,5 @@
 .container {
-  height: 500px;
+  height: 300px;
   text-align: center; /* Canh giữa theo chiều ngang */
   border: 1px solid red;
 }
@@ -8,4 +8,52 @@
   margin: auto; /* Canh giữa theo chiều ngang và dọc */
   display: block; /* Để margin: auto hoạt động */
   border: 1px solid green;
+}
+
+span.a {
+  display: inline; /* the default for span */
+  width: 100px;
+  height: 100px;
+  margin-top: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+
+span.b {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin-top: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  border: 1px solid blue;
+  background-color: yellow;
+}
+
+span.c {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin-top: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  padding-top: 25px;
+  padding-right: 25px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  border: 1px solid blue;
+  background-color: yellow;
 }
