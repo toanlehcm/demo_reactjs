@@ -1,17 +1,33 @@
 .container {
   height: 300px;
-  /* text-align: center; Canh giữa theo chiều ngang */
   border: 1px solid red;
-  display: grid;
-  place-items: center; /* Căn giữa theo cả chiều ngang và dọc */
+
+  /*--- Use case display: block; Canh giữa theo chiều ngang ---*/
+  /* text-align: center;  */
+
+  /*--- Use case display: grid; Căn giữa theo cả chiều ngang và dọc ---*/
+  /* display: grid;
+  place-items: center; */
+
+  /*--- Use case Sử dụng position và transform ---*/
+  position: relative;
 }
 
 .container img {
-  /* Canh giữa theo chiều ngang và dọc */
+  border: 1px solid green;
+
+  /*--- Use case display: block; Canh giữa theo chiều ngang và dọc ---*/
   /* margin: auto;  */
   /* Để margin: auto hoạt động */
   /* display: block;  */
-  border: 1px solid green;
+
+  /*--- Use case display: grid; không cần chỉnh gì thêm ---*/
+
+  /*--- Use case Sử dụng position và transform ---*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 span.a {
