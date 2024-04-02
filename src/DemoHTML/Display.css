@@ -1,12 +1,16 @@
 .container {
   height: 300px;
-  text-align: center; /* Canh giữa theo chiều ngang */
+  /* text-align: center; Canh giữa theo chiều ngang */
   border: 1px solid red;
+  display: grid;
+  place-items: center; /* Căn giữa theo cả chiều ngang và dọc */
 }
 
 .container img {
-  margin: auto; /* Canh giữa theo chiều ngang và dọc */
-  display: block; /* Để margin: auto hoạt động */
+  /* Canh giữa theo chiều ngang và dọc */
+  /* margin: auto;  */
+  /* Để margin: auto hoạt động */
+  /* display: block;  */
   border: 1px solid green;
 }
 

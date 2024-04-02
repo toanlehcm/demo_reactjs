@@ -1,7 +1,7 @@
 import React from 'react';
-import CallApplyBind from './DemoJS/CallApplyBind';
+import Display from './DemoHTML/Display';
 
 export default function App() {
 
-  return (<CallApplyBind />);
+  return (<Display />);
 }
