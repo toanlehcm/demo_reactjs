@@ -22,12 +22,13 @@ const TodoFeature = (props) => {
   ];
 
   const [todoList, setTodoList] = useState(initTodoList);
+  const [filterStatus, setFilterStatus] = useState("all");
 
   const handleTodoList = (todo, idx) => {
     // Clone current array to the new one.
     const newTodoList = [...todoList];
 
-    // Toggle stat.
+    // Toggle state.
     newTodoList[idx] = {
       ...newTodoList[idx], // Get current object.
       status: newTodoList[idx].status === "new" ? "completed" : "new",
@@ -37,7 +38,29 @@ const TodoFeature = (props) => {
     setTodoList(newTodoList);
   };
 
-  return <TodoList todoList={todoList} onTodoClick={handleTodoList} />;
+  const showAll = () => {
+    setFilterStatus("all");
+  };
+
+  const showComplete = () => {
+    setFilterStatus("completed");
+  };
+
+  const showNew = () => {
+    setFilterStatus("new");
+  };
+
+  const renderedTodoList = todoList.filter((todo) => filterStatus === "all" || filterStatus === todo.status);
+
+  return (
+    <>
+      <TodoList todoList={renderedTodoList} onTodoClick={handleTodoList} />
+
+      <button onClick={() => showAll()}>Show All</button>
+      <button onClick={() => showComplete()}>Show Completed</button>
+      <button onClick={() => showNew()}>Show New</button>
+    </>
+  );
 };
 
 TodoFeature.propTypes = {};
