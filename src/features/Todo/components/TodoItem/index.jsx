@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const TodoItem = ({ todo }) => {
-  return <li key={todo.id}>{todo.title}</li>;
+  return <span>{todo.title}</span>;
 };
 
 TodoItem.propTypes = {

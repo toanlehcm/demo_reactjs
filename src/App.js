@@ -1,7 +1,7 @@
 import React from 'react';
-import TodoFeature from './features/Todo';
+import AlbumFeature from './features/Album';
 
 export default function App() {
 
-  return (<TodoFeature />);
+  return (<AlbumFeature />);
 }
