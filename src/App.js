@@ -1,7 +1,7 @@
 import React from 'react';
-import Display from './DemoHTML/Display';
+import TodoFeature from './features/Todo';
 
 export default function App() {
 
-  return (<Display />);
+  return (<TodoFeature />);
 }
