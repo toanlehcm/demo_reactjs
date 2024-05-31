@@ -1,10 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TextField } from '@mui/material';
+import { Controller } from 'react-hook-form';
 
-InputField.propTypes = {};
+InputField.propTypes = {
+  form: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  disabled: PropTypes.bool,
+};
 
 function InputField(props) {
-  return <div>InputField</div>;
+  const { form, name, label, disabled } = props;
+  return (
+    <Controller
+      name={name} // name is passed in from the outside -> require.
+      control={form.control} // require for controller.
+      as={TextField} // binding into text field such as onChange, onFill, onBlur,...
+      fullWidth
+      label={label}
+      disabled={disabled}
+    />
+  );
 }
 
 export default InputField;
