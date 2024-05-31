@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import TodoList from "../../components/TodoList";
+import { useLocation } from "react-router-dom";
+import queryString from "query-string";
 
 const ListPage = (props) => {
-  console.log("1");
   const initTodoList = [
     {
       id: 1,
@@ -22,8 +23,13 @@ const ListPage = (props) => {
     },
   ];
 
+  const location = useLocation(); // Get params after the ?
   const [todoList, setTodoList] = useState(initTodoList);
-  const [filterStatus, setFilterStatus] = useState("all");
+  const [filterStatus, setFilterStatus] = useState(() => {
+    const params = queryString.parse(location.search);
+
+    return params.status || "all";
+  });
 
   const handleTodoList = (todo, idx) => {
     // Clone current array to the new one.
