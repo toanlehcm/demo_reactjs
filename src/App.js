@@ -1,7 +1,7 @@
 import React from 'react';
 import AlbumFeature from './features/Album';
 import TodoFeature from './features/Todo';
-import { Routes, Route, NavLink, } from 'react-router-dom';
+import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 export default function App() {
 
@@ -13,7 +13,7 @@ export default function App() {
       <p><NavLink to='/albums' activeClassName="active">Album</NavLink></p>
 
       <Routes>
-        {/* <Route path="/" element={<TodoFeature />} /> */}
+        <Route path="/" element={<Navigate to='/home' />} />
         <Route path="/todos" element={<TodoFeature />} />
         <Route path='/albums' element={<AlbumFeature />} />
       </Routes>
