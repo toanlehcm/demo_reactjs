@@ -1,6 +1,7 @@
 import React from 'react';
 import AlbumFeature from './features/Album';
 import TodoFeature from './features/Todo';
+import NotFound from './components/NotFound';
 import { Routes, Route, NavLink, Navigate } from 'react-router-dom';
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/" element={<Navigate to='/home' />} />
         <Route path="/todos/*" element={<TodoFeature />} />
         <Route path='/albums' element={<AlbumFeature />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       Footer

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Routes, Route, NavLink, Navigate, useMatch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ListPage from "./pages/ListPage";
 import DetailPage from "./pages/DetailPage";
+import NotFound from "../../components/NotFound";
 
 const TodoFeature = (props) => {
   return (
@@ -11,6 +12,7 @@ const TodoFeature = (props) => {
       <Routes>
         <Route path="/" element={<ListPage />} />
         <Route path=":todoId" element={<DetailPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
