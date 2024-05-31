@@ -9,12 +9,12 @@ export default function App() {
     <div className='App'>
       Header
 
-      <p><NavLink to='/todos' activeClassName="active-menu">todo</NavLink></p>
+      <p><NavLink to='/todos' activeClassName="active-menu">Todo</NavLink></p>
       <p><NavLink to='/albums' activeClassName="active">Album</NavLink></p>
 
       <Routes>
         <Route path="/" element={<Navigate to='/home' />} />
-        <Route path="/todos" element={<TodoFeature />} />
+        <Route path="/todos/*" element={<TodoFeature />} />
         <Route path='/albums' element={<AlbumFeature />} />
       </Routes>
 
