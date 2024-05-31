@@ -1,25 +1,25 @@
-import React, { useEffect, useMemo, useState } from "react";
-import PropTypes from "prop-types";
-import TodoList from "../../components/TodoList";
-import { useLocation, useHistory, useRouteMatch } from "react-router-dom";
-import queryString from "query-string";
+import React, { useEffect, useMemo, useState } from 'react';
+import PropTypes from 'prop-types';
+import TodoList from '../../components/TodoList';
+import { useLocation, useHistory, useRouteMatch } from 'react-router-dom';
+import queryString from 'query-string';
 
 const ListPage = (props) => {
   const initTodoList = [
     {
       id: 1,
-      title: "eat",
-      status: "new",
+      title: 'eat',
+      status: 'new',
     },
     {
       id: 2,
-      title: "sleep",
-      status: "completed",
+      title: 'sleep',
+      status: 'completed',
     },
     {
       id: 3,
-      title: "code",
-      status: "new",
+      title: 'code',
+      status: 'new',
     },
   ];
 
@@ -30,13 +30,13 @@ const ListPage = (props) => {
   const [filterStatus, setFilterStatus] = useState(() => {
     const params = queryString.parse(location.search);
 
-    return params.status || "all";
+    return params.status || 'all';
   });
 
   useEffect(() => {
     const params = queryString.parse(location.search);
 
-    setFilterStatus(params.status || "all");
+    setFilterStatus(params.status || 'all');
   }, [location.search]);
 
   const handleTodoList = (todo, idx) => {
@@ -46,7 +46,7 @@ const ListPage = (props) => {
     // Toggle state.
     newTodoList[idx] = {
       ...newTodoList[idx], // Get current object.
-      status: newTodoList[idx].status === "new" ? "completed" : "new",
+      status: newTodoList[idx].status === 'new' ? 'completed' : 'new',
     };
 
     // Update toggle.
@@ -54,7 +54,7 @@ const ListPage = (props) => {
   };
 
   const showAll = () => {
-    const queryParams = { status: "all" };
+    const queryParams = { status: 'all' };
     history.push({
       pathname: match.path,
       search: queryString.stringify(queryParams),
@@ -62,7 +62,7 @@ const ListPage = (props) => {
   };
 
   const showComplete = () => {
-    const queryParams = { status: "completed" };
+    const queryParams = { status: 'completed' };
     history.push({
       pathname: match.path,
       search: queryString.stringify(queryParams),
@@ -70,7 +70,7 @@ const ListPage = (props) => {
   };
 
   const showNew = () => {
-    const queryParams = { status: "new" };
+    const queryParams = { status: 'new' };
     history.push({
       pathname: match.path,
       search: queryString.stringify(queryParams),
@@ -79,7 +79,7 @@ const ListPage = (props) => {
 
   // Rendered Todo List only change when todo list and filter status change.
   const renderedTodoList = useMemo(() => {
-    return todoList.filter((todo) => filterStatus === "all" || filterStatus === todo.status);
+    return todoList.filter((todo) => filterStatus === 'all' || filterStatus === todo.status);
   }, [todoList, filterStatus]);
 
   return (
