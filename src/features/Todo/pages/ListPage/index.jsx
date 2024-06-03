@@ -84,7 +84,16 @@ const ListPage = (props) => {
   }, [todoList, filterStatus]);
 
   const handleTodoFormSubmit = (values) => {
-    console.log('values', values);
+    const newTodo = {
+      id: todoList.length + 1,
+      title: values.title,
+      status: 'new',
+    };
+
+    // newTodoList clone current todoList and add newTodo.
+    const newTodoList = [...todoList, newTodo];
+
+    setTodoList(newTodoList);
   };
 
   return (

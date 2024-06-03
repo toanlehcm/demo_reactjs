@@ -29,7 +29,14 @@ function TodoForm(props) {
   });
 
   const onHandleSubmit = (values) => {
-    console.log('submit: ', values);
+    const { onSubmit } = props;
+
+    if (onSubmit) {
+      onSubmit(values);
+    }
+
+    // Reset the form whether submitted successfully or not.
+    form.reset();
   };
 
   return (
