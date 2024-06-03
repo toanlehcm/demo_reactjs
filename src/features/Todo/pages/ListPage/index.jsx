@@ -90,7 +90,7 @@ const ListPage = (props) => {
   return (
     <div>
       <h3>what to do</h3>
-      <TodoForm onSubmit={handleTodoFormSubmit}></TodoForm>
+      <TodoForm onSubmit={handleTodoFormSubmit} />
 
       <TodoList todoList={renderedTodoList} onTodoClick={handleTodoList} />
 
