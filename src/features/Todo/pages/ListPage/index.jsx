@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import TodoList from '../../components/TodoList';
 import { useLocation, useHistory, useRouteMatch } from 'react-router-dom';
 import queryString from 'query-string';
-import TodoForm from '../../components/TodoForm';
+import TodoForm from 'features/Todo/components/TodoForm';
 
 const ListPage = (props) => {
   const initTodoList = [
