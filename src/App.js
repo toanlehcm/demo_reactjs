@@ -3,6 +3,7 @@ import AlbumFeature from './features/Album';
 import TodoFeature from './features/Todo';
 import NotFound from './components/NotFound';
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import CounterFeature from './features/Counter';
 
 export default function App() {
   return (
@@ -14,9 +15,10 @@ export default function App() {
 
       <Switch>
         <Redirect from="/home" to='/' exact />
+        <Route path="/" component={CounterFeature} />
         <Route path="/todos" component={TodoFeature} />
         <Route path='/albums' component={AlbumFeature} />
-        <Route component={NotFound} />
+        {/* <Route component={NotFound} /> */}
       </Switch>
 
       Footer
