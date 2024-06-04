@@ -11,12 +11,11 @@ export default function App() {
     <div className='App'>
       <Header />
 
-
       <Switch>
         <Redirect from="/home" to='/' exact />
-        <Route path="/" component={CounterFeature} />
-        <Route path="/todos" component={TodoFeature} />
-        <Route path='/albums' component={AlbumFeature} />
+        <Route path="/" component={CounterFeature} exact />
+        <Route path="/todos" component={TodoFeature} exact />
+        <Route path='/albums' component={AlbumFeature} exact />
         {/* <Route component={NotFound} /> */}
       </Switch>
 

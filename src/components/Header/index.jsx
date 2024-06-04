@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CodeIcon from '@mui/icons-material/Code';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -14,17 +14,34 @@ export default function Header() {
         <Toolbar>
           <CodeIcon />
 
-          <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-            EZ SHOP
+          <Typography
+            variant='h6'
+            component='div'
+            sx={{
+              flexGrow: 1,
+              paddingLeft: '10px',
+              a: {
+                color: '#fff',
+                textDecoration: 'none',
+              },
+            }}
+          >
+            <Link to='/'>EZ SHOP</Link>
           </Typography>
 
-          {/* <NavLink to='/todos' activeClassName='active-menu'>
-          </NavLink> */}
-          <Button color='inherit'>Todo</Button>
+          {/*  activeClassName='active-menu' */}
+          <NavLink to='/todos'>
+            <Button color='inherit' sx={{ color: '#fff' }}>
+              Todo
+            </Button>
+          </NavLink>
 
-          {/* <NavLink to='/albums' activeClassName='active'>
-          </NavLink> */}
-          <Button color='inherit'>Album</Button>
+          {/* activeClassName='active' */}
+          <NavLink to='/albums'>
+            <Button color='inherit' sx={{ color: '#fff' }}>
+              Album
+            </Button>
+          </NavLink>
 
           <Button color='inherit'>Register</Button>
         </Toolbar>
