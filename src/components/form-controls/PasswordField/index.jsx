@@ -8,6 +8,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormControl from '@mui/material/FormControl';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import { FormHelperText } from '@mui/material';
 
 PasswordField.propTypes = {
   form: PropTypes.object.isRequired,
@@ -23,8 +24,8 @@ function PasswordField(props) {
     formState: { errors, touchedFields },
   } = form;
 
-  // Only show error when touched and has error.
-  const hasError = touchedFields[name] && errors[name];
+  // Only show error when has error.
+  const hasError = errors[name]; // touchedFields[name] &&
 
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -48,7 +49,6 @@ function PasswordField(props) {
             label={label}
             disabled={disabled}
             error={!!hasError}
-            helperText={errors?.[name]?.message}
             endAdornment={
               <InputAdornment position='end'>
                 <IconButton
@@ -64,6 +64,8 @@ function PasswordField(props) {
           />
         )}
       />
+
+      <FormHelperText error={!!hasError}>{errors?.[name]?.message}</FormHelperText>
     </FormControl>
   );
 }

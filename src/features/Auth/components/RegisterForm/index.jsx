@@ -22,6 +22,7 @@ function RegisterForm(props) {
         return value.split(' ').length >= 2;
       }),
     email: yup.string().required('Please enter your email.').email('Please enter a valid email.'),
+    password: yup.string().required('Please enter your password.').min(6, 'Please enter at least 6 characters.'),
   });
 
   const form = useForm({
