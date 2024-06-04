@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputField from 'components/form-controls/InputField';
-import { Avatar, Typography } from '@mui/material';
+import { Avatar, Box, Button, Typography } from '@mui/material';
 import { LockOutlined } from '@mui/icons-material';
 
 RegisterForm.propTypes = {
@@ -38,12 +38,12 @@ function RegisterForm(props) {
   };
 
   return (
-    <div>
-      <Avatar>
+    <Box component='div' sx={{ marginTop: 4 }}>
+      <Avatar sx={{ margin: '0 auto', bgcolor: 'secondary.main' }}>
         <LockOutlined></LockOutlined>
       </Avatar>
 
-      <Typography component='h3' variant='h5'>
+      <Typography component='h1' variant='h5' sx={{ textAlign: 'center' }}>
         Create an account
       </Typography>
 
@@ -53,7 +53,11 @@ function RegisterForm(props) {
         <InputField name='password' label='Password' form={form} disabled={false} />
         <InputField name='retypePassword' label='Retype Password' form={form} disabled={false} />
       </form>
-    </div>
+
+      <Button variant='contained' color='primary' fullWidth sx={{ mt: 3, mb: 2 }}>
+        Create an account
+      </Button>
+    </Box>
   );
 }
 
