@@ -17,8 +17,8 @@ function InputField(props) {
     formState: { errors, touchedFields },
   } = form;
 
-  // Only show error when touched and has error.
-  const hasError = touchedFields[name] && errors[name];
+  // Only show error when has error.
+  const hasError = errors[name];
 
   return (
     <Controller

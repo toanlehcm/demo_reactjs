@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
@@ -14,7 +15,12 @@ RegisterForm.propTypes = {
 
 function RegisterForm(props) {
   const schema = yup.object().shape({
-    // title: yup.string().required('Please enter title').min(5, 'Title is too short'),
+    fullName: yup
+      .string()
+      .required('Please enter your full name.')
+      .test('should has at least two words', 'Please enter at least two words.', (value) => {
+        return value.split(' ').length >= 2;
+      }),
   });
 
   const form = useForm({
@@ -24,19 +30,15 @@ function RegisterForm(props) {
       password: '',
       retypePassword: '',
     },
-    // resolver: yupResolver(schema),
+    resolver: yupResolver(schema),
   });
 
-  const handleSubmitRegister = (values) => {
-    console.log('handleSubmitRegister');
-    // const { onSubmit } = props;
+  const handleSubmit = async (values) => {
+    const { onSubmit } = props;
 
-    // if (onSubmit) {
-    //   onSubmit(values);
-    // }
-
-    // // Reset the form whether submitted successfully or not.
-    // form.reset();
+    if (onSubmit) {
+      onSubmit(values);
+    }
   };
 
   return (
@@ -49,13 +51,13 @@ function RegisterForm(props) {
         Create an account
       </Typography>
 
-      <form onSubmit={form.handleSubmit(handleSubmitRegister)}>
-        <InputField name='fullName' label='Full Name' form={form} disabled={false} />
-        <InputField name='email' label='Email' form={form} disabled={false} />
-        <PasswordField name='password' label='Password' form={form} disabled={false} />
-        <PasswordField name='retypePassword' label='Retype Password' form={form} disabled={false} />
+      <form onSubmit={form.handleSubmit(handleSubmit)}>
+        <InputField name='fullName' label='Full Name' form={form} />
+        <InputField name='email' label='Email' form={form} />
+        <PasswordField name='password' label='Password' form={form} />
+        <PasswordField name='retypePassword' label='Retype Password' form={form} />
 
-        <Button type='submit' variant='contained' color='primary' fullWidth sx={{ mt: 3, mb: 2 }}>
+        <Button type='submit' variant='contained' color='primary' fullWidth size='large' sx={{ mt: 3, mb: 2 }}>
           Create an account
         </Button>
       </form>

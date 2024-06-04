@@ -63,22 +63,7 @@ export default function Header() {
         </Toolbar>
       </AppBar>
 
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        disableEscapeKeyDown
-        PaperProps={{
-          component: 'form',
-          onSubmit: (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.currentTarget);
-            const formJson = Object.fromEntries(formData.entries());
-            const email = formJson.email;
-            console.log(email);
-            handleClose();
-          },
-        }}
-      >
+      <Dialog open={open} onClose={handleClose} disableEscapeKeyDown aria-labelledby='form-dialog-title'>
         <DialogContent>
           <Register />
         </DialogContent>
