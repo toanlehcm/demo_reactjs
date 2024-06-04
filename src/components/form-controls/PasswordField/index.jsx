@@ -25,7 +25,7 @@ function PasswordField(props) {
   } = form;
 
   // Only show error when has error.
-  const hasError = errors[name]; // touchedFields[name] &&
+  const hasError = !!errors[name]; // touchedFields[name] &&
 
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -36,7 +36,7 @@ function PasswordField(props) {
   };
 
   return (
-    <FormControl fullWidth margin='normal' variant='outlined'>
+    <FormControl fullWidth margin='normal' variant='outlined' error={hasError}>
       <InputLabel htmlFor={name}>{label}</InputLabel>
       <Controller
         name={name}
@@ -48,7 +48,6 @@ function PasswordField(props) {
             type={showPassword ? 'text' : 'password'}
             label={label}
             disabled={disabled}
-            error={!!hasError}
             endAdornment={
               <InputAdornment position='end'>
                 <IconButton
@@ -65,7 +64,7 @@ function PasswordField(props) {
         )}
       />
 
-      <FormHelperText error={!!hasError}>{errors?.[name]?.message}</FormHelperText>
+      <FormHelperText>{errors?.[name]?.message}</FormHelperText>
     </FormControl>
   );
 }

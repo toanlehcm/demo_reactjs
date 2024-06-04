@@ -23,6 +23,10 @@ function RegisterForm(props) {
       }),
     email: yup.string().required('Please enter your email.').email('Please enter a valid email.'),
     password: yup.string().required('Please enter your password.').min(6, 'Please enter at least 6 characters.'),
+    retypePassword: yup
+      .string()
+      .required('Please retype your password.')
+      .oneOf([yup.ref('password')], 'Password does not match'),
   });
 
   const form = useForm({
