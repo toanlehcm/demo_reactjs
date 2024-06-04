@@ -21,23 +21,14 @@ function InputField(props) {
   const hasError = touchedFields[name] && errors[name];
 
   return (
-    // <Controller
-    //   name={name} // name is passed in from the outside -> require.
-    //   control={form.control} // require for controller.
-    //   as={TextField} // binding into text field such as onChange, onFill, onBlur,...
-    //   fullWidth
-    //   label={label}
-    //   disabled={disabled}
-    //   error={!!hasError}
-    //   helperText={errors?.[name]?.message}
-    // />
-
     <Controller
       name={name}
       control={form.control}
       render={({ field }) => (
         <TextField
           {...field}
+          margin='normal'
+          variant='outlined'
           fullWidth
           label={label}
           disabled={disabled}

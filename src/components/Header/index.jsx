@@ -10,6 +10,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
+import Register from 'features/Auth/components/Register';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -79,9 +80,7 @@ export default function Header() {
         }}
       >
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We will send updates occasionally.
-          </DialogContentText>
+          <Register />
         </DialogContent>
 
         <DialogActions>
