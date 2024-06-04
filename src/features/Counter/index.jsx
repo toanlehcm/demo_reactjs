@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { increase, decrease } from './counterSlice'; // name import.
+import { Button } from '@mui/material';
 
 const CounterFeature = (props) => {
   const dispatch = useDispatch();
@@ -26,10 +27,14 @@ const CounterFeature = (props) => {
     <div>
       CounterFeature: {count}
       <div>
-        <button onClick={handleIncreaseClick}>Increase</button>
+        <Button variant='contained' color='primary' onClick={handleIncreaseClick}>
+          Increase
+        </Button>
       </div>
       <div>
-        <button onClick={handleDecreaseClick}>Decrease</button>
+        <Button variant='contained' color='primary' onClick={handleDecreaseClick}>
+          Decrease
+        </Button>
       </div>
     </div>
   );
