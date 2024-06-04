@@ -2,16 +2,15 @@ import React from 'react';
 import AlbumFeature from './features/Album';
 import TodoFeature from './features/Todo';
 import NotFound from './components/NotFound';
-import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import CounterFeature from './features/Counter';
+import Header from 'components/Header';
 
 export default function App() {
   return (
     <div className='App'>
-      Header
+      <Header />
 
-      <p><NavLink to='/todos' activeClassName="active-menu">Todo</NavLink></p>
-      <p><NavLink to='/albums' activeClassName="active">Album</NavLink></p>
 
       <Switch>
         <Redirect from="/home" to='/' exact />
