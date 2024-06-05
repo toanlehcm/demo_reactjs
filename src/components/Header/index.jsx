@@ -11,6 +11,7 @@ import DialogContent from '@mui/material/DialogContent';
 import Register from 'features/Auth/components/Register';
 import { IconButton } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import Login from 'features/Auth/components/Login';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -69,7 +70,8 @@ export default function Header() {
         </IconButton>
 
         <DialogContent>
-          <Register closeDialog={handleClose} />
+          {/* <Register closeDialog={handleClose} /> */}
+          <Login closeDialog={handleClose} />
         </DialogContent>
       </Dialog>
     </Box>
