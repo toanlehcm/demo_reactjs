@@ -4,9 +4,11 @@ import RegisterForm from '../RegisterForm';
 import { useDispatch } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { register } from 'features/Auth/userSlice';
+import { useSnackbar } from 'notistack';
 
 const Register = (props) => {
   const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleSubmit = async (values) => {
     try {
@@ -23,7 +25,14 @@ const Register = (props) => {
       // Use unwrapResult to get results from resultAction. If successful, return user data. If failed, return error.
       const user = unwrapResult(resultAction);
 
-      // Do something here on register successfully.
+      // Close dialog.
+      const { closeDialog } = props;
+      if (closeDialog) {
+        closeDialog();
+      }
+
+      // Show message successfully.
+      enqueueSnackbar('Register successfully!', { variant: 'success' });
     } catch (error) {
       console.log('Failed to register: ', error);
     }
@@ -36,6 +45,8 @@ const Register = (props) => {
   );
 };
 
-Register.propTypes = {};
+Register.propTypes = {
+  closeDialog: PropTypes.func,
+};
 
 export default Register;
