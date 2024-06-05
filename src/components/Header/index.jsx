@@ -9,7 +9,7 @@ import { NavLink, Link } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Register from 'features/Auth/components/Register';
-import { IconButton } from '@mui/material';
+import { IconButton, Menu, MenuItem } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Login from 'features/Auth/components/Login';
 import { useSelector } from 'react-redux';
@@ -25,6 +25,7 @@ export default function Header() {
   const isLoggedIn = !!loggedInUser.id;
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState(MODE.LOGIN);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -33,6 +34,14 @@ export default function Header() {
   const handleClose = (event, reason) => {
     if (reason && reason === 'backdropClick') return;
     setOpen(false);
+  };
+
+  const handleUserClick = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -75,12 +84,24 @@ export default function Header() {
           )}
 
           {isLoggedIn && (
-            <IconButton color='inherit'>
+            <IconButton color='inherit' onClick={handleUserClick}>
               <AccountCircleIcon />
             </IconButton>
           )}
         </Toolbar>
       </AppBar>
+
+      <Menu
+        keepMounted
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleCloseMenu}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <MenuItem onClick={handleCloseMenu}>My account</MenuItem>
+        <MenuItem onClick={handleCloseMenu}>Logout</MenuItem>
+      </Menu>
 
       <Dialog open={open} onClose={handleClose} disableEscapeKeyDown aria-labelledby='form-dialog-title'>
         <IconButton sx={{ position: 'absolute', top: 0, right: 0, zIndex: 1 }} onClick={handleClose}>
