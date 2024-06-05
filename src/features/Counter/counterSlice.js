@@ -1,3 +1,4 @@
+// This file is used for define actions in redux.
 import { createSlice } from "@reduxjs/toolkit";
 
 const counterSlice = createSlice({

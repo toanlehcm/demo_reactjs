@@ -7,14 +7,18 @@ import { Button } from '@mui/material';
 const CounterFeature = (props) => {
   const dispatch = useDispatch();
 
+  // useSelector is used to get state from redux.
   // (state) is root state. Get state from redux.
   // state <=> rootReducer in file store, so state.count.
   const count = useSelector((state) => state.count);
 
   const handleIncreaseClick = () => {
-    const action = increase(123); // functions is called 'action creator'. Basically, increase() return 1 object
+    // Every time you want to send an action to redux, just call the action already defined by CounterSlice, for example increase().
+    // Then dispatch this action to redux.
+    // Functions is called 'action creator'. Basically, increase() return 1 object
+    const action = increase(123);
 
-    // After have action, dispatch action. Pass action to redux (action increase in counterSlice.js)
+    // After have action, dispatch(send) action to pass action to redux (action increase in counterSlice.js)
     dispatch(action);
   };
 
