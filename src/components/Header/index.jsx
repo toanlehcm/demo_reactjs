@@ -7,10 +7,10 @@ import Button from '@mui/material/Button';
 import CodeIcon from '@mui/icons-material/Code';
 import { NavLink, Link } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import Register from 'features/Auth/components/Register';
+import { IconButton } from '@mui/material';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -64,13 +64,13 @@ export default function Header() {
       </AppBar>
 
       <Dialog open={open} onClose={handleClose} disableEscapeKeyDown aria-labelledby='form-dialog-title'>
+        <IconButton sx={{ position: 'absolute', top: 0, right: 0, zIndex: 1 }} onClick={handleClose}>
+          <HighlightOffIcon />
+        </IconButton>
+
         <DialogContent>
           <Register closeDialog={handleClose} />
         </DialogContent>
-
-        <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-        </DialogActions>
       </Dialog>
     </Box>
   );
