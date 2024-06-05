@@ -39,7 +39,16 @@ const userSlice = createSlice({
     settings: {},
   },
 
-  reducers: {},
+  reducers: {
+    logout(state) {
+      // Clear local storage.
+      localStorage.removeItem(StorageKeys.USER)
+      localStorage.removeItem(StorageKeys.TOKEN)
+
+      // Reset state on store redux.
+      state.current = {}
+    }
+  },
 
   extraReducers: (builder) => {
     builder.addCase(register.fulfilled, (state, action) => {
@@ -54,5 +63,6 @@ const userSlice = createSlice({
   },
 })
 
-const { reducer } = userSlice
+const { actions, reducer } = userSlice
+export const { logout } = actions
 export default reducer // default export.

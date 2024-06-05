@@ -12,8 +12,9 @@ import Register from 'features/Auth/components/Register';
 import { IconButton, Menu, MenuItem } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Login from 'features/Auth/components/Login';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { logout } from 'features/Auth/userSlice';
 
 const MODE = {
   LOGIN: 'login',
@@ -21,6 +22,7 @@ const MODE = {
 };
 
 export default function Header() {
+  const dispatch = useDispatch();
   const loggedInUser = useSelector((state) => state.user.current);
   const isLoggedIn = !!loggedInUser.id;
   const [open, setOpen] = useState(false);
@@ -41,6 +43,12 @@ export default function Header() {
   };
 
   const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogoutClick = () => {
+    const action = logout();
+    dispatch(action);
     setAnchorEl(null);
   };
 
@@ -100,7 +108,7 @@ export default function Header() {
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <MenuItem onClick={handleCloseMenu}>My account</MenuItem>
-        <MenuItem onClick={handleCloseMenu}>Logout</MenuItem>
+        <MenuItem onClick={handleLogoutClick}>Logout</MenuItem>
       </Menu>
 
       <Dialog open={open} onClose={handleClose} disableEscapeKeyDown aria-labelledby='form-dialog-title'>
