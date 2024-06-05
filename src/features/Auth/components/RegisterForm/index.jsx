@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputField from 'components/form-controls/InputField';
-import { Avatar, Box, Button, Typography } from '@mui/material';
+import { Avatar, Box, Button, LinearProgress, Typography } from '@mui/material';
 import { LockOutlined } from '@mui/icons-material';
 import PasswordField from 'components/form-controls/PasswordField';
 
@@ -43,12 +43,18 @@ function RegisterForm(props) {
     const { onSubmit } = props;
 
     if (onSubmit) {
-      onSubmit(values);
+      // Wait function 'handleSubmit' in component parent handle to complete.
+      await onSubmit(values);
     }
   };
 
+  // 'Submitting' status means the handleSubmit() function has finished running.
+  const { isSubmitting } = form.formState;
+
   return (
     <Box component='div' sx={{ marginTop: 4 }}>
+      {isSubmitting && <LinearProgress sx={{ position: 'absolute', top: 0, left: 0, right: 0 }} />}
+
       <Avatar sx={{ margin: '0 auto', bgcolor: 'secondary.main' }}>
         <LockOutlined></LockOutlined>
       </Avatar>
@@ -63,7 +69,15 @@ function RegisterForm(props) {
         <PasswordField name='password' label='Password' form={form} />
         <PasswordField name='retypePassword' label='Retype Password' form={form} />
 
-        <Button type='submit' variant='contained' color='primary' fullWidth size='large' sx={{ mt: 3, mb: 2 }}>
+        <Button
+          disabled={isSubmitting}
+          type='submit'
+          variant='contained'
+          color='primary'
+          fullWidth
+          size='large'
+          sx={{ mt: 3, mb: 2 }}
+        >
           Create an account
         </Button>
       </form>
