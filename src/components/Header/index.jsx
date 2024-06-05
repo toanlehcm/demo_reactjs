@@ -12,6 +12,8 @@ import Register from 'features/Auth/components/Register';
 import { IconButton } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Login from 'features/Auth/components/Login';
+import { useSelector } from 'react-redux';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const MODE = {
   LOGIN: 'login',
@@ -19,6 +21,8 @@ const MODE = {
 };
 
 export default function Header() {
+  const loggedInUser = useSelector((state) => state.user.current);
+  const isLoggedIn = !!loggedInUser.id;
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState(MODE.LOGIN);
 
@@ -64,9 +68,17 @@ export default function Header() {
             </Button>
           </NavLink>
 
-          <Button color='inherit' onClick={handleClickOpen}>
-            Register
-          </Button>
+          {!isLoggedIn && (
+            <Button color='inherit' onClick={handleClickOpen}>
+              Login
+            </Button>
+          )}
+
+          {isLoggedIn && (
+            <IconButton color='inherit'>
+              <AccountCircleIcon />
+            </IconButton>
+          )}
         </Toolbar>
       </AppBar>
 
