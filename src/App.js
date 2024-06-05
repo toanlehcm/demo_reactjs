@@ -5,6 +5,7 @@ import NotFound from './components/NotFound';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import CounterFeature from './features/Counter';
 import Header from 'components/Header';
+import ProductFeature from 'features/Product';
 
 export default function App() {
   return (
@@ -13,10 +14,12 @@ export default function App() {
 
       <Switch>
         <Redirect from="/home" to='/' exact />
+
         <Route path="/" component={CounterFeature} exact />
         <Route path="/todos" component={TodoFeature} exact />
         <Route path='/albums' component={AlbumFeature} exact />
-        {/* <Route component={NotFound} /> */}
+        <Route path="/products" component={ProductFeature} exact />
+        <Route component={NotFound} />
       </Switch>
 
       Footer
