@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Box, Container, Grid, Paper, Typography } from '@mui/material';
 import productApi from 'api/productApi';
 import ProductSkeletonList from '../components/ProductSkeletonList';
+import ProductList from '../components/ProductList';
 
 ListPage.propTypes = {};
 
@@ -14,12 +15,12 @@ function ListPage(props) {
     (async () => {
       try {
         const { data } = await productApi.getAll({ _page: 1, _limit: 10 });
-        console.log('data', data);
+        setProductList(data);
       } catch (error) {
         console.log('Error: ', error);
       }
 
-      //  setLoading(false)
+      setLoading(false);
     })();
   }, []);
 
@@ -39,10 +40,10 @@ function ListPage(props) {
           <Grid
             item
             sx={{
-              flex: '1 1 auto',
+              flex: '1 1 0',
             }}
           >
-            <Paper elevation={0}>{loading ? <ProductSkeletonList /> : <Typography>right</Typography>}</Paper>
+            <Paper elevation={0}>{loading ? <ProductSkeletonList /> : <ProductList data={productList} />}</Paper>
           </Grid>
         </Grid>
       </Container>
