@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Button, TextField, Typography } from '@mui/material';
+import { grey } from '@mui/material/colors';
 
 FilterByPrice.propTypes = {
   onChange: PropTypes.func,
@@ -24,23 +25,41 @@ function FilterByPrice({ onChange }) {
   const handleSubmit = () => {
     if (onChange) onChange(values);
 
-    setValues({
-      salePrice_gte: 0,
-      salePrice_lte: 0,
-    });
+    // setValues({
+    //   salePrice_gte: 0,
+    //   salePrice_lte: 0,
+    // });
   };
 
   return (
-    <Box>
-      <Typography>GIÁ</Typography>
+    <Box
+      sx={{
+        padding: '16px',
+        borderTop: `1px solid ${grey[300]}`,
+      }}
+    >
+      <Typography>CHỌN KHOẢNG GIÁ</Typography>
 
-      <Box>
+      <Box
+        sx={{
+          marginTop: 1,
+          marginBottom: 1,
+          display: 'flex',
+          flexFlow: 'row nowrap',
+          alignItems: 'center',
+
+          span: {
+            marginLeft: 1,
+            marginRight: 1,
+          },
+        }}
+      >
         <TextField name='salePrice_gte' value={values.salePrice_gte} onChange={handleChange} />
         <span>-</span>
         <TextField name='salePrice_lte' value={values.salePrice_lte} onChange={handleChange} />
       </Box>
 
-      <Button variant='outlined' color='primary' onClick={handleSubmit}>
+      <Button variant='outlined' color='primary' size='small' onClick={handleSubmit}>
         Áp dụng
       </Button>
     </Box>
