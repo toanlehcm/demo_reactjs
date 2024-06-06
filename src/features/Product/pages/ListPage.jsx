@@ -64,12 +64,22 @@ function ListPage(props) {
             <Paper elevation={0}>
               {loading ? <ProductSkeletonList length={9} /> : <ProductList data={productList} />}
 
-              <Pagination
-                color='primary'
-                count={Math.ceil(pagination.total / pagination.limit)}
-                page={pagination.page} // Current page.
-                onChange={handlePageChange}
-              />
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexFlow: 'row, nowrap',
+                  justifyContent: 'center',
+                  marginTop: '30px',
+                  paddingBottom: '20px',
+                }}
+              >
+                <Pagination
+                  color='primary'
+                  count={Math.ceil(pagination.total / pagination.limit)}
+                  page={pagination.page} // Current page.
+                  onChange={handlePageChange}
+                />
+              </Box>
             </Paper>
           </Grid>
         </Grid>
