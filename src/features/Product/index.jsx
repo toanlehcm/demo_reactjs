@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ListPage from './pages/ListPage';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Box } from '@mui/material';
