@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Typography } from '@mui/material';
 import categoryApi from 'api/categoryApi';
+import styles from './FilterByCategory.module.scss';
 
 FilterByCategory.propTypes = {
   onChange: PropTypes.func,
@@ -35,8 +36,8 @@ function FilterByCategory({ onChange }) {
   };
 
   return (
-    <Box>
-      <Typography>DANH MỤC SẢN PHẨM</Typography>
+    <Box sx={{ padding: 2 }}>
+      <Typography variant='subtitle2'>DANH MỤC SẢN PHẨM</Typography>
 
       <ul>
         {categoryList.map((item, index) => (
