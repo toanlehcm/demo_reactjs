@@ -4,6 +4,7 @@ import productApi from 'api/productApi';
 import ProductSkeletonList from '../components/ProductSkeletonList';
 import ProductList from '../components/ProductList';
 import ProductSort from '../components/ProductSort';
+import ProductFilters from '../components/ProductFilters';
 
 ListPage.propTypes = {};
 
@@ -50,6 +51,13 @@ function ListPage(props) {
     }));
   };
 
+  const handleFiltersChange = (newFilters) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      ...newFilters,
+    }));
+  };
+
   return (
     <Box>
       <Container>
@@ -60,7 +68,9 @@ function ListPage(props) {
               width: '250px',
             }}
           >
-            <Paper elevation={0}>left</Paper>
+            <Paper elevation={0}>
+              <ProductFilters filters={filters} onChange={handleFiltersChange} />
+            </Paper>
           </Grid>
 
           <Grid
