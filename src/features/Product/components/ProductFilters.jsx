@@ -9,22 +9,24 @@ ProductFilters.propTypes = {
 };
 
 function ProductFilters({ filters, onChange }) {
-  const handleFilterChange = (newCategoryId) => {
-    console.log('newCategoryId', newCategoryId);
+  const handleCategoryChange = (newCategoryId) => {
     if (!onChange) return;
 
     const newFilters = {
-      ...filters,
       'category.id': newCategoryId,
     };
 
     onChange(newFilters);
   };
 
+  const handlePriceChange = (newValues) => {
+    if (onChange) onChange(newValues);
+  };
+
   return (
     <div>
-      <FilterByCategory onChange={handleFilterChange} />
-      {/* <FilterByPrice onChange={handleFilterChange} /> */}
+      <FilterByCategory onChange={handleCategoryChange} />
+      <FilterByPrice onChange={handlePriceChange} />
     </div>
   );
 }
