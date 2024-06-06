@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Container, Grid, Paper, Typography } from '@mui/material';
+import { Box, Container, Grid, Pagination, Paper } from '@mui/material';
 import productApi from 'api/productApi';
 import ProductSkeletonList from '../components/ProductSkeletonList';
 import ProductList from '../components/ProductList';
@@ -9,20 +9,38 @@ ListPage.propTypes = {};
 
 function ListPage(props) {
   const [productList, setProductList] = useState([]);
+  const [pagination, setPagination] = useState({
+    page: 1,
+    limit: 9,
+    total: 10,
+  });
   const [loading, setLoading] = useState(true);
+  const [filters, setFilters] = useState({
+    _page: 1,
+    _limit: 9,
+  });
 
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await productApi.getAll({ _page: 1, _limit: 10 });
+        const { data, pagination } = await productApi.getAll(filters);
+
         setProductList(data);
+        setPagination(pagination);
       } catch (error) {
         console.log('Error: ', error);
       }
 
       setLoading(false);
     })();
-  }, []);
+  }, [filters]);
+
+  const handlePageChange = (e, page) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      _page: page,
+    }));
+  };
 
   return (
     <Box>
@@ -43,7 +61,16 @@ function ListPage(props) {
               flex: '1 1 0',
             }}
           >
-            <Paper elevation={0}>{loading ? <ProductSkeletonList /> : <ProductList data={productList} />}</Paper>
+            <Paper elevation={0}>
+              {loading ? <ProductSkeletonList length={9} /> : <ProductList data={productList} />}
+
+              <Pagination
+                color='primary'
+                count={Math.ceil(pagination.total / pagination.limit)}
+                page={pagination.page} // Current page.
+                onChange={handlePageChange}
+              />
+            </Paper>
           </Grid>
         </Grid>
       </Container>
