@@ -21,8 +21,6 @@ export default function App() {
         <Route path="/products" component={ProductFeature} exact />
         <Route component={NotFound} />
       </Switch>
-
-      Footer
     </div>
   );
 }
