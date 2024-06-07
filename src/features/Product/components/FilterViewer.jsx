@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Chip } from '@mui/material';
 
@@ -65,11 +65,15 @@ const FILTER_LIST = [
       delete newFilters['category.id'];
       return newFilters;
     },
-    onToggle: (filters) => {},
+    onToggle: () => {},
   },
 ];
 
 function FilterViewer({ filters = {}, onChange = null }) {
+  const visibleFilters = useMemo(() => {
+    return FILTER_LIST.filter((x) => x.isVisible(filters));
+  }, [filters]);
+
   return (
     <Box
       component='ul'
@@ -86,13 +90,13 @@ function FilterViewer({ filters = {}, onChange = null }) {
         },
       }}
     >
-      {FILTER_LIST.filter((x) => x.isVisible(filters)).map((x) => (
+      {visibleFilters.map((x) => (
         <li key={x.id}>
           <Chip
             label={x.getLabel(filters)}
             color={x.isActive(filters) ? 'primary' : 'default'}
-            clickable={!x.isRemovable}
             size='small'
+            clickable={!x.isRemovable}
             onClick={
               x.isRemovable
                 ? null
