@@ -2,15 +2,19 @@ import React from 'react';
 import { Box, Container, Grid, Paper } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import ProductThumbnail from '../components/ProductThumbnail';
-import { useRouteMatch } from 'react-router';
+import { useRouteMatch, Route, Switch } from 'react-router';
 import useProductDetail from '../hooks/useProductDetail';
 import ProductInfo from '../components/ProductInfo';
 import AddToCartForm from '../components/AddToCartForm';
 import ProductMenu from '../components/ProductMenu';
+import ProductDescription from '../components/ProductDescription';
+import ProductAdditional from '../components/ProductAdditional';
+import ProductReviews from '../components/ProductReviews';
 
 function DetailPage(props) {
   const {
     params: { productId },
+    url,
   } = useRouteMatch();
 
   const { product, loading } = useProductDetail(productId);
@@ -59,6 +63,15 @@ function DetailPage(props) {
         </Paper>
 
         <ProductMenu />
+
+        <Switch>
+          <Route exact path={url}>
+            <ProductDescription product={product} />
+          </Route>
+
+          <Route path={`${url}/additional`} component={ProductAdditional} />
+          <Route path={`${url}/reviews`} component={ProductReviews} />
+        </Switch>
       </Container>
     </Box>
   );
