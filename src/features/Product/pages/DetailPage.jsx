@@ -1,12 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, Container, Grid, Paper } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import ProductThumbnail from '../components/ProductThumbnail';
 import { useRouteMatch } from 'react-router';
 import useProductDetail from '../hooks/useProductDetail';
-
-DetailPage.propTypes = {};
+import ProductInfo from '../components/ProductInfo';
 
 function DetailPage(props) {
   const {
@@ -42,7 +40,7 @@ function DetailPage(props) {
                 flex: '1 1 0',
               }}
             >
-              ProductInfo
+              <ProductInfo product={product} />
             </Grid>
           </Grid>
         </Paper>
