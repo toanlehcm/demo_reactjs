@@ -41,9 +41,15 @@ function PasswordField(props) {
       <Controller
         name={name}
         control={form.control}
-        render={({ field }) => (
+        render={(
+          { field }, //onChange, onBlur, value, name,
+        ) => (
           <OutlinedInput
             {...field}
+            // name={name}
+            // value={value}
+            // onChange={onChange}
+            // onBlur={onBlur}
             id={name}
             type={showPassword ? 'text' : 'password'}
             label={label}

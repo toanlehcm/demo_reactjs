@@ -24,9 +24,15 @@ function InputField(props) {
     <Controller
       name={name}
       control={form.control}
-      render={({ field }) => (
+      render={(
+        { field }, //onChange, onBlur, value, name,
+      ) => (
         <TextField
           {...field}
+          // name={name}
+          // value={value}
+          // onChange={onChange}
+          // onBlur={onBlur}
           margin='normal'
           variant='outlined'
           fullWidth
