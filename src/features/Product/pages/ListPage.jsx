@@ -5,6 +5,7 @@ import ProductSkeletonList from '../components/ProductSkeletonList';
 import ProductList from '../components/ProductList';
 import ProductSort from '../components/ProductSort';
 import ProductFilters from '../components/ProductFilters';
+import FilterViewer from '../components/FilterViewer';
 
 ListPage.propTypes = {};
 
@@ -58,6 +59,10 @@ function ListPage(props) {
     }));
   };
 
+  const setNewFilters = (newFilters) => {
+    setFilters(newFilters);
+  };
+
   return (
     <Box>
       <Container>
@@ -81,6 +86,7 @@ function ListPage(props) {
           >
             <Paper elevation={0}>
               <ProductSort currentSort={filters._sort} onChange={handleSortChange} />
+              <FilterViewer filters={filters} onChange={setNewFilters} />
 
               {loading ? <ProductSkeletonList length={9} /> : <ProductList data={productList} />}
 
