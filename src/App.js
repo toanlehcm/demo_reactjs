@@ -18,7 +18,7 @@ export default function App() {
         <Route path="/" component={CounterFeature} exact />
         <Route path="/todos" component={TodoFeature} exact />
         <Route path='/albums' component={AlbumFeature} exact />
-        <Route path="/products" component={ProductFeature} exact />
+        <Route path="/products" component={ProductFeature} />
         <Route component={NotFound} />
       </Switch>
     </div>
