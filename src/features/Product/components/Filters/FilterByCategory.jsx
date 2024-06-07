@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Typography } from '@mui/material';
 import categoryApi from 'api/categoryApi';
-import styles from './FilterByCategory.module.scss';
 
 FilterByCategory.propTypes = {
   onChange: PropTypes.func,
@@ -36,7 +35,24 @@ function FilterByCategory({ onChange }) {
   };
 
   return (
-    <Box sx={{ padding: 2 }}>
+    <Box
+      sx={{
+        padding: 2,
+        ul: {
+          padding: 0,
+          margin: 0,
+          listStyleType: 'none',
+          li: {
+            marginTop: '8px',
+            transition: 'all 0.25s',
+            '&:hover': {
+              color: 'blue',
+              cursor: 'pointer',
+            },
+          },
+        },
+      }}
+    >
       <Typography variant='subtitle2'>DANH MỤC SẢN PHẨM</Typography>
 
       <ul>
