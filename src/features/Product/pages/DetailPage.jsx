@@ -5,6 +5,7 @@ import ProductThumbnail from '../components/ProductThumbnail';
 import { useRouteMatch } from 'react-router';
 import useProductDetail from '../hooks/useProductDetail';
 import ProductInfo from '../components/ProductInfo';
+import AddToCartForm from '../components/AddToCartForm';
 
 function DetailPage(props) {
   const {
@@ -16,6 +17,16 @@ function DetailPage(props) {
   if (loading) {
     return <Box>Loading</Box>;
   }
+
+  const handleAddToCartSubmit = ({ quantity }) => {
+    console.log('quantity', quantity);
+    // const action = addToCart({
+    //   id: product.id,
+    //   product,
+    //   quantity,
+    // });
+    // dispatch(action);
+  };
 
   return (
     <Box>
@@ -41,6 +52,7 @@ function DetailPage(props) {
               }}
             >
               <ProductInfo product={product} />
+              <AddToCartForm onSubmit={handleAddToCartSubmit} />
             </Grid>
           </Grid>
         </Paper>
