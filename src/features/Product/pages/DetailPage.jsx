@@ -10,6 +10,8 @@ import ProductMenu from '../components/ProductMenu';
 import ProductDescription from '../components/ProductDescription';
 import ProductAdditional from '../components/ProductAdditional';
 import ProductReviews from '../components/ProductReviews';
+import { addToCart } from 'features/Cart/cartSlice';
+import { useDispatch } from 'react-redux';
 
 function DetailPage(props) {
   const {
@@ -18,6 +20,7 @@ function DetailPage(props) {
   } = useRouteMatch();
 
   const { product, loading } = useProductDetail(productId);
+  const dispatch = useDispatch();
 
   if (loading) {
     return (
@@ -35,13 +38,12 @@ function DetailPage(props) {
   }
 
   const handleAddToCartSubmit = ({ quantity }) => {
-    console.log('quantity', quantity);
-    // const action = addToCart({
-    //   id: product.id,
-    //   product,
-    //   quantity,
-    // });
-    // dispatch(action);
+    const action = addToCart({
+      id: product.id,
+      product,
+      quantity,
+    });
+    dispatch(action);
   };
 
   return (
