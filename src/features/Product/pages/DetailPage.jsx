@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Container, Grid, Paper } from '@mui/material';
 import { grey } from '@mui/material/colors';
+import ProductThumbnail from '../components/ProductThumbnail';
 
 DetailPage.propTypes = {};
 
@@ -21,7 +22,7 @@ function DetailPage(props) {
                 borderRight: `1px solid ${grey[300]}`,
               }}
             >
-              Thumbnail
+              <ProductThumbnail product={{}} />
             </Grid>
 
             <Grid
