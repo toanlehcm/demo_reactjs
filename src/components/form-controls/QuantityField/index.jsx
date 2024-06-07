@@ -14,8 +14,12 @@ QuantityField.propTypes = {
 
 function QuantityField(props) {
   const { form, name, label, disabled } = props;
-  const { errors, setValue } = form;
-  const hasError = !!errors[name];
+  const {
+    control,
+    setValue,
+    formState: { errors },
+  } = form;
+  const hasError = errors ? !!errors[name] : false;
 
   return (
     <FormControl error={hasError} fullWidth margin='normal' variant='outlined' size='small'>
@@ -24,36 +28,56 @@ function QuantityField(props) {
       <Controller
         name={name}
         control={form.control}
-        render={({ onChange, onBlur, value, name }) => (
-          <Box
-            sx={{
-              display: 'flex',
-              flexFlow: 'row nowrap',
-              alignItems: 'center',
-              maxWidth: '200px',
-            }}
-          >
-            <IconButton onClick={() => setValue(name, Number.parseInt(value) ? Number.parseInt(value) - 1 : 1)}>
-              <RemoveCircleOutline />
-            </IconButton>
+        render={({ field }) => {
+          const { onChange, onBlur, value, name } = field;
 
-            <OutlinedInput
-              id={name}
-              type='number'
-              disabled={disabled}
-              value={value}
-              onChange={onChange}
-              onBlur={onBlur}
-            />
+          return (
+            <Box
+              sx={{
+                display: 'flex',
+                flexFlow: 'row nowrap',
+                alignItems: 'center',
+                maxWidth: '200px',
+              }}
+            >
+              <IconButton onClick={() => setValue(name, Number.parseInt(value) ? Number.parseInt(value) - 1 : 1)}>
+                <RemoveCircleOutline />
+              </IconButton>
 
-            <IconButton onClick={() => setValue(name, Number.parseInt(value) ? Number.parseInt(value) + 1 : 1)}>
-              <AddCircleOutline />
-            </IconButton>
-          </Box>
-        )}
+              {/* <IconButton onClick={() => field.onChange(Number.parseInt(value) ? Number.parseInt(value) - 1 : 1)}>
+                <RemoveCircleOutline />
+              </IconButton> */}
+
+              <OutlinedInput
+                id={name}
+                type='number'
+                disabled={disabled}
+                value={value}
+                onChange={onChange}
+                onBlur={onBlur}
+              />
+
+              <IconButton
+                onClick={() => {
+                  setValue(name, Number.parseInt(value) ? Number.parseInt(value) + 1 : 1);
+                }}
+              >
+                <AddCircleOutline />
+              </IconButton>
+
+              {/* <IconButton
+                onClick={() => {
+                  field.onChange(Number.parseInt(value) ? Number.parseInt(value) + 1 : 1);
+                }}
+              >
+                <AddCircleOutline />
+              </IconButton> */}
+            </Box>
+          );
+        }}
       />
 
-      <FormHelperText>{errors[name]?.message}</FormHelperText>
+      {errors && <FormHelperText>{errors[name]?.message}</FormHelperText>}
     </FormControl>
   );
 }
