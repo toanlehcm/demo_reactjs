@@ -3,11 +3,21 @@ import PropTypes from 'prop-types';
 import { Box, Container, Grid, Paper } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import ProductThumbnail from '../components/ProductThumbnail';
+import { useRouteMatch } from 'react-router';
+import useProductDetail from '../hooks/useProductDetail';
 
 DetailPage.propTypes = {};
 
 function DetailPage(props) {
-  console.log('DetailPage');
+  const {
+    params: { productId },
+  } = useRouteMatch();
+
+  const { product, loading } = useProductDetail(productId);
+
+  if (loading) {
+    return <Box>Loading</Box>;
+  }
 
   return (
     <Box>
@@ -22,7 +32,7 @@ function DetailPage(props) {
                 borderRight: `1px solid ${grey[300]}`,
               }}
             >
-              <ProductThumbnail product={{}} />
+              <ProductThumbnail product={product} />
             </Grid>
 
             <Grid
