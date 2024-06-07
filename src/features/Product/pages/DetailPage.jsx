@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Paper } from '@mui/material';
+import { Box, Container, Grid, LinearProgress, Paper } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import ProductThumbnail from '../components/ProductThumbnail';
 import { useRouteMatch, Route, Switch } from 'react-router';
@@ -20,7 +20,18 @@ function DetailPage(props) {
   const { product, loading } = useProductDetail(productId);
 
   if (loading) {
-    return <Box>Loading</Box>;
+    return (
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+        }}
+      >
+        <LinearProgress />
+      </Box>
+    );
   }
 
   const handleAddToCartSubmit = ({ quantity }) => {
@@ -34,7 +45,7 @@ function DetailPage(props) {
   };
 
   return (
-    <Box>
+    <Box sx={{ paddingBottom: 3 }}>
       <Container>
         <Paper elevation={0}>
           <Grid container>
