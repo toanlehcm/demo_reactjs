@@ -5,16 +5,18 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CodeIcon from '@mui/icons-material/Code';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useHistory } from 'react-router-dom';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import Register from 'features/Auth/components/Register';
-import { IconButton, Menu, MenuItem } from '@mui/material';
+import { Badge, IconButton, Menu, MenuItem } from '@mui/material';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Login from 'features/Auth/components/Login';
 import { useDispatch, useSelector } from 'react-redux';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { logout } from 'features/Auth/userSlice';
+import { cartItemsCountSelector } from 'features/Cart/selectors';
+import { ShoppingCart } from '@mui/icons-material';
 
 const MODE = {
   LOGIN: 'login',
@@ -28,6 +30,8 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [mode, setMode] = useState(MODE.LOGIN);
   const [anchorEl, setAnchorEl] = useState(null);
+  const history = useHistory();
+  const cartItemsCount = useSelector(cartItemsCountSelector);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -50,6 +54,10 @@ export default function Header() {
     const action = logout();
     dispatch(action);
     setAnchorEl(null);
+  };
+
+  const handleCartClick = () => {
+    history.push('/cart');
   };
 
   return (
@@ -90,6 +98,12 @@ export default function Header() {
               Login
             </Button>
           )}
+
+          <IconButton aria-label='show 4 new mails' color='inherit' onClick={handleCartClick}>
+            <Badge badgeContent={cartItemsCount} color='secondary'>
+              <ShoppingCart />
+            </Badge>
+          </IconButton>
 
           {isLoggedIn && (
             <IconButton color='inherit' onClick={handleUserClick}>
