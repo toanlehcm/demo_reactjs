@@ -20,33 +20,33 @@ export default function StoredByValueAnhReference() {
   /*------------------ 2. Các khám niệm: ------------------*/
   var aTemp = { key: 'value' };
   var bTemp = aTemp;
-  // console.log(aTemp, bTemp);
+  console.log(aTemp, bTemp);
   aTemp = { key: 'new value' };
-  // console.log(aTemp, bTemp);
+  console.log(aTemp, bTemp);
 
   /*------ Tham trị - stored as value type. ------*/
   let aValue = 5;
   let bValue = aValue;
-  // console.log('stored as value type: ', aValue, bValue);
+  console.log('stored as value type: ', aValue, bValue);
   aValue = 10;
-  // console.log('stored as value type: ', aValue, bValue);
+  console.log('stored as value type: ', aValue, bValue);
 
   /*------ Tham chiếu - stored as reference type. ------*/
   var aRefer = { name: 'Hau' };
   var bRefer = aRefer;
-  // console.log('stored as reference type: ', aRefer, bRefer);
+  console.log('stored as reference type: ', aRefer, bRefer);
   // aRefer = { name: 'Toan' };
   aRefer.name = 'Toan'; // Modify the original object
-  // console.log('stored as reference type: ', aRefer, bRefer);
+  console.log('stored as reference type: ', aRefer, bRefer);
 
   /*------ Truyền tham số dạng tham trị - pass by value. ------*/
   function doMagic1(number) {
     number = 10;
   }
   const aPassByValue = 5;
-  // console.log('a-1', aPassByValue);
+  console.log('a-1', aPassByValue);
   doMagic1(aPassByValue);
-  // console.log('a-2', aPassByValue);
+  console.log('a-2', aPassByValue);
   /**
    * Bản chất của JS là tạo ra 1 biến const a1 = aPassByValue. Lúc này a1 và aPassByValue cùng = 5 nhưng không liên quan nhau.
    * sau đó truyền a1 vào doMagic1: doMagic1(a1), do đó cái thay đổi trong doMagic1 là a1 không phải aPassByValue. 
@@ -58,9 +58,9 @@ export default function StoredByValueAnhReference() {
     obj.name = 'Po';
   }
   const aPassByRefer = { name: 'Hau' };
-  // console.log('aPassByRefer-1', aPassByRefer);
+  console.log('aPassByRefer-1', aPassByRefer);
   doMagic2(aPassByRefer);
-  // console.log('aPassByRefer-2', aPassByRefer);
+  console.log('aPassByRefer-2', aPassByRefer);
   /**
    * JS cũng copy const a1 = aPassByRefer. Lúc này a1 và aPassByRefer cùng trỏ đến 1 vị trí trên bộ nhớ, ví dụ 1e2f.
    * Sau đó pass a1 vào doMagic2(a1), lúc này là doMagic2(a1){a1.name='Po'}.
@@ -73,9 +73,9 @@ export default function StoredByValueAnhReference() {
   // ES6: spread operator (...)
   var aSpread = { name: 'Hau' }; // 1e2f.
   var bSpread = { ...aSpread }; // 1e2g. 
-  // console.log('aSpread-1: ', aSpread, bSpread);
+  console.log('aSpread-1: ', aSpread, bSpread);
   aSpread.name = 'Po';
-  // console.log('aSpread-2: ', aSpread, bSpread);
+  console.log('aSpread-2: ', aSpread, bSpread);
   /**
    * Tạo ra 1 object mới, lấy các giá trị của object a bỏ vào.
    * aSpread và bSpread không liên quan nhau.
@@ -83,9 +83,9 @@ export default function StoredByValueAnhReference() {
 
   var arrSpread = [1, 2, 3]; // 1e2f.
   var brrSpread = [...arrSpread]; // 1e2g.
-  // console.log('arrSpread-1: ', arrSpread, brrSpread);
+  console.log('arrSpread-1: ', arrSpread, brrSpread);
   arrSpread.push(4);
-  // console.log('arrSpread-2: ', arrSpread, brrSpread);
+  console.log('arrSpread-2: ', arrSpread, brrSpread);
 
   /*------ Tham trị với cả tham chiếu ------*/
   // Cái này liên quan gì tới ReactJS, Redux?
@@ -147,7 +147,9 @@ export default function StoredByValueAnhReference() {
   // Câu 2.
   function doSomethingGreat(obj, arr) {
     obj.value = 3500;
-    arr.push(obj.value);
+    // arr.push(obj.value);
+    arr = [1, 2]
+    console.log('arr', arr);
   }
 
   var aEx2 = { value: 1500 };
@@ -156,6 +158,7 @@ export default function StoredByValueAnhReference() {
   doSomethingGreat(aEx2, bEx2);
   console.log('Ex2: ', 'aEx2', aEx2, 'bEx2', bEx2);
   // aEx2: {value:3500} vì tham chiếu đến cùng vị trí bộ nhớ với obj trong function.
-  // bEx2: [1000,1500,3500] vì tham chiếu đến cùng vị trí bộ nhớ với arr trong function.
+  // arr.push(obj.value) => bEx2: [1000,1500,3500] vì tham chiếu đến cùng vị trí bộ nhớ với arr trong function.
+  // arr = [1, 2] => bEx2: [1000,1500] vì arr được gán giá trị mới, vị trí bộ nhớ khác.
 }
 
