@@ -1,6 +1,33 @@
 import styles from "./Display.css";
 
 export default function Display(params) {
+  /*------- Romulus test ---*/
+  function fc(n, x, arr) {
+    let arrResult = [];
+
+    for (let i = 2; i <= n; i++) {
+      for (let j = 0; j < n; j++) {
+        var tempArr = arr.slice(j, j + i);
+        var tempResult = tempArr.reduce((a, b) => a + b);
+        console.log(tempArr, tempResult);
+
+        if (tempResult > x) {
+          arrResult = tempArr;
+          break;
+        }
+      }
+
+      if (arrResult.length > 0) {
+        break;
+      }
+    }
+
+    console.log("result:", new Set(arrResult).size);
+  }
+
+  // fc(5, 50, [1, 10, 3, 40, 18]); // 2
+  fc(6, 51, [1, 4, 45, 6, 0, 19]); // 3
+
   return (
     <>
       <div className="container">
