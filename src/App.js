@@ -1,31 +1,30 @@
-import React, { useState } from "react";
-import './style.css';
+const React = require('react');
 
-class App extends React.Component {
-    constructor() {
-        super();
-
-        this.state = {
-            data: []
-        }
-
-        this.listUp = this.listUp.bind(this);
-    }
-
-    listUp() {
-        var arr = ["a", "b", "c"];
-        var myArr = arr.map((val, index) => <li key={index}>{val}</li>);
-        this.setState({ data: myArr });
-    }
-
-    render() {
-        return (
-            <div>
-                <button onClick={this.listUp} >list up</button>
-                <p>list: {this.state.data} </p>
-            </div>
-        );
-    }
+function Header() {
+  return <h1>Header (Fast Render)</h1>;
 }
 
-export default App;
+function Post() {
+  // Simulate heavy rendering by large loop
+  const content = Array.from({ length: 1000000 }, (_, i) => (
+    <p key={i}>Post content line {i}</p>
+  ));
+
+  return (
+    <div>
+      <h2>Post (Slow Render)</h2>
+      {content}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <div>
+      <Header />
+      <Post />
+    </div>
+  );
+}
+
+module.exports = App;
