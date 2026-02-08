@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { ErrorMessage, useFormik } from "formik";
 import "./style.css";
@@ -27,6 +27,12 @@ const validate = (values) => {
   }
   return {};
 };
+
+const buildSearchIndex = (items) => {
+  console.log("🔨 buildSearchIndex running");
+  return; /* big computation */
+};
+
 const SignupForm = () => {
   // Notice that we have to initialize ALL of fields with values. These
   // could come from props, but since we don't want to prefill this form,
@@ -46,6 +52,8 @@ const SignupForm = () => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+
+  const [searchIndex] = useState(() => buildSearchIndex(1));
 
   return (
     <form onSubmit={formik.handleSubmit}>
