@@ -1,0 +1,14 @@
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Giúp browser chuẩn bị GPU layer */
+.gpu-layer {
+  will-change: transform;
+}

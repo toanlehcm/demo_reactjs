@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, startTransition, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { ErrorMessage, useFormik } from "formik";
 import "./style.css";
+import { DeploymentStatus } from "./components/VercelSpinner";
 
 // A custom validation function. This must return an object
 // which keys are symmetrical to our values/initialValues
@@ -60,6 +61,16 @@ const SignupForm = () => {
 
   const [searchIndex] = useState(() => buildSearchIndex(1));
   const [searchUserProfile] = useState(() => userProfile());
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handler = () => {
+      console.log("window.scrollY", window.scrollY);
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -76,6 +87,8 @@ const SignupForm = () => {
       {formik.errors.email ? <div>{formik.errors.email}</div> : null}
 
       <button type="submit">Submit</button>
+
+      {/* <DeploymentStatus /> */}
     </form>
   );
 };
