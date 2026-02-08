@@ -33,6 +33,11 @@ const buildSearchIndex = (items) => {
   return; /* big computation */
 };
 
+const userProfile = () => {
+  console.log("JSON.parse runs on every render", JSON.parse('{"name":"John Doe","age":30}'));
+  return;
+};
+
 const SignupForm = () => {
   // Notice that we have to initialize ALL of fields with values. These
   // could come from props, but since we don't want to prefill this form,
@@ -54,6 +59,7 @@ const SignupForm = () => {
   });
 
   const [searchIndex] = useState(() => buildSearchIndex(1));
+  const [searchUserProfile] = useState(() => userProfile());
 
   return (
     <form onSubmit={formik.handleSubmit}>
