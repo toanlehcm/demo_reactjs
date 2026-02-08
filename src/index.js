@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { ErrorMessage, useFormik } from "formik";
 import "./style.css";
 import { DeploymentStatus } from "./components/VercelSpinner";
+import ActivityListDemo from "./components/ActivityLists/ActivityListDemo";
 
 // A custom validation function. This must return an object
 // which keys are symmetrical to our values/initialValues
@@ -65,7 +66,7 @@ const SignupForm = () => {
 
   useEffect(() => {
     const handler = () => {
-      console.log("window.scrollY", window.scrollY);
+      //   console.log("window.scrollY", window.scrollY);
       setScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handler, { passive: true });
@@ -89,6 +90,8 @@ const SignupForm = () => {
       <button type="submit">Submit</button>
 
       {/* <DeploymentStatus /> */}
+
+      {/* <ActivityListDemo /> */}
     </form>
   );
 };

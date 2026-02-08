@@ -1,0 +1,12 @@
+.list-container {
+  height: 400px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  margin-bottom: 24px;
+}
+
+/* Không tối ưu */
+.log-item-no-opt {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
