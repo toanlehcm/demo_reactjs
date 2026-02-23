@@ -2,8 +2,10 @@ import React, { useState, startTransition, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { ErrorMessage, useFormik } from "formik";
 import "./style.css";
+import "./output.css";
 import { DeploymentStatus } from "./components/VercelSpinner";
 import ActivityListDemo from "./components/ActivityLists/ActivityListDemo";
+import LoginPage from "./components/login-page/LoginPage";
 
 // A custom validation function. This must return an object
 // which keys are symmetrical to our values/initialValues
@@ -97,7 +99,8 @@ const SignupForm = () => {
 };
 
 function App() {
-  return <SignupForm />;
+  // return <SignupForm />;
+  return <LoginPage />;
 }
 
 const rootElement = document.getElementById("app");
