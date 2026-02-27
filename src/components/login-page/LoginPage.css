@@ -1,0 +1,115 @@
+.dashboard-login-root {
+  width: 100vw;
+  height: 100vh;
+  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-login-bg {
+  width: 100%;
+  height: 100%;
+  background: #2056d9;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-login-container {
+  width: 480px;
+  min-height: 480px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-login-header {
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboard-login-cart {
+  margin-top: 48px;
+  margin-bottom: 24px;
+  display: block;
+}
+
+.dashboard-login-form {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.dashboard-login-input-row {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.dashboard-login-input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+  background: #2056d9;
+  color: #fff;
+  font-size: 16px;
+  padding: 0 16px;
+  font-family: "Inter", Arial, sans-serif;
+  letter-spacing: 0.05em;
+  outline: none;
+  box-shadow: 0 0 0 1px #fff inset;
+}
+
+.dashboard-login-input::placeholder {
+  color: #fff;
+  opacity: 0.7;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.dashboard-login-btn {
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  color: #2056d9;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 4px;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dashboard-login-btn:hover {
+  background: #f0f0f0;
+}
+
+.dashboard-login-forgot {
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.dashboard-login-forgot a {
+  color: #fff;
+  font-size: 13px;
+  text-decoration: underline;
+  opacity: 0.9;
+  letter-spacing: 0.03em;
+}
+
+.dashboard-login-footer {
+  margin-top: 32px;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  opacity: 0.7;
+}
