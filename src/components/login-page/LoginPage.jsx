@@ -8,6 +8,7 @@ export default function LoginPage() {
   return (
     <div className="dashboard-login-root">
       <div className="dashboard-login-bg">
+        <div className="dashboard-login-ellipse" />
         <div className="dashboard-login-container">
           <LoginHeader />
           <LoginForm />
