@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 import LoginPage from "./components/login-page/LoginPage";
 
 function App() {
   return <LoginPage />;
 }
 
-const rootElement = document.getElementById("app");
-ReactDOM.render(<App />, rootElement);
+const root = createRoot(document.getElementById("app"));
+root.render(<App />);
