@@ -1,0 +1,222 @@
+/* SignUpPage.css - Vanilla CSS Implementation based on Figma Image */
+
+/* Viewport and Background Wrapper */
+.signup-page-root {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #BBE3D0; /* Base mint-green background */
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+.signup-page-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Simulated Vector Background Blobs */
+.signup-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(2px);
+  z-index: -1;
+}
+
+.signup-blob-1 {
+  width: 800px;
+  height: 800px;
+  background-color: #A9D5C0; /* slightly darker green blob */
+  top: -300px;
+  left: -200px;
+  border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  transform: rotate(-20deg);
+}
+
+.signup-blob-2 {
+  width: 900px;
+  height: 900px;
+  background-color: #CBEAD9; /* lighter green blob */
+  bottom: -400px;
+  right: -300px;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  transform: rotate(15deg);
+}
+
+.signup-blob-3 {
+  width: 400px;
+  height: 400px;
+  background-color: #A7D5C0;
+  bottom: 10%;
+  left: -100px;
+  border-radius: 50% 50% 30% 70%;
+  opacity: 0.6;
+}
+
+/* Main Card Container */
+.signup-page-container {
+  background-color: #FAFAFA;
+  width: 100%;
+  max-width: 480px;
+  padding: 48px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* Header Styling */
+.signup-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.signup-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #222222;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.5px;
+}
+
+.signup-subtitle {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0 16px;
+}
+
+/* Form Styling */
+.signup-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.signup-input-group {
+  position: relative;
+  width: 100%;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 14px;
+  color: #333333;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.signup-input::placeholder {
+  color: #A0A0A0;
+}
+
+.signup-input:focus {
+  border-color: #82C8A9;
+  box-shadow: 0 0 0 3px rgba(130, 200, 169, 0.2);
+}
+
+.signup-input-error {
+  border-color: #E74C3C;
+}
+
+.signup-input-error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+.signup-error-text {
+  color: #E74C3C;
+  font-size: 12px;
+  margin-top: 6px;
+  margin-left: 4px;
+  display: block;
+}
+
+/* Submit Button */
+.signup-submit-btn {
+  width: 100%;
+  padding: 16px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background-color: #82C8A9; /* Mint green from Figma */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.signup-submit-btn:hover {
+  background-color: #72BE9D;
+}
+
+.signup-submit-btn:active {
+  transform: scale(0.98);
+}
+
+.signup-submit-btn:disabled {
+  background-color: #C0C0C0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Footer Styling */
+.signup-footer {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 14px;
+  color: #666666;
+}
+
+.signup-link {
+  color: #333333;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 4px;
+  transition: color 0.2s ease;
+}
+
+.signup-link:hover {
+  color: #82C8A9;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .signup-page-container {
+    max-width: 90%;
+    padding: 32px 24px;
+  }
+  
+  .signup-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 375px) {
+  .signup-page-container {
+    max-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    justify-content: center;
+  }
+}
