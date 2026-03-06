@@ -25,51 +25,21 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  background-color: #2148c0; /* exact Figma color */
+  background-color: #2148c0;
+  /* exact Figma color */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-/* Ellipse trái trên – blob xanh nhạt hơn */
-.dashboard-login-bg::before {
-  content: "";
+/* Ellipse SVG Background */
+.dashboard-login-svg-bg {
   position: absolute;
-  top: -160px;
-  left: -160px;
-  width: 560px;
-  height: 560px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 45%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Ellipse phải dưới – blob xanh nhạt hơn */
-.dashboard-login-bg::after {
-  content: "";
-  position: absolute;
-  bottom: -180px;
-  right: -140px;
-  width: 640px;
-  height: 640px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.06) 45%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Ellipse giữa trái – blob tối hơn sát cạnh trái */
-.dashboard-login-ellipse {
-  position: absolute;
-  top: 50%;
-  left: -200px;
-  transform: translateY(-50%);
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, rgba(10, 40, 140, 0.55) 0%, rgba(10, 40, 140, 0.25) 50%, transparent 70%);
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 0;
 }
@@ -104,7 +74,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 0; /* controlled individually below */
+  gap: 0;
+  /* controlled individually below */
 }
 
 /* Input row wrapper */
@@ -113,7 +84,8 @@ body {
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 16px; /* gap giữa 2 input */
+  margin-bottom: 16px;
+  /* gap giữa 2 input */
 }
 
 .dashboard-login-input {
@@ -167,7 +139,8 @@ body {
   width: 100%;
   height: 44px;
   background: #fff;
-  color: #2148c0; /* exact Figma color */
+  color: #2148c0;
+  /* exact Figma color */
   font-family: "Montserrat", Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -176,7 +149,8 @@ body {
   letter-spacing: 0.12em;
   border: none;
   border-radius: 6px;
-  margin-top: 8px; /* gap input cuối → button */
+  margin-top: 8px;
+  /* gap input cuối → button */
   cursor: pointer;
   transition: opacity 0.2s;
 }
@@ -189,7 +163,8 @@ body {
 .dashboard-login-forgot {
   width: 100%;
   text-align: center;
-  margin-top: 16px; /* gap button → forgot */
+  margin-top: 16px;
+  /* gap button → forgot */
 }
 
 .dashboard-login-forgot a {
@@ -219,14 +194,17 @@ body {
     max-width: 360px;
     padding: 0 16px;
   }
+
   .dashboard-login-cart {
     width: 56px;
     height: 56px;
   }
+
   .dashboard-login-input {
     height: 42px;
     font-size: 12px;
   }
+
   .dashboard-login-btn {
     height: 42px;
     font-size: 13px;

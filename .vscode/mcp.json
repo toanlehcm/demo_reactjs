@@ -9,12 +9,16 @@
 //     }
 //   }
 // }
-
 {
   "servers": {
     "figma": {
       "type": "http",
       "url": "https://mcp.figma.com/mcp",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@figma/mcp-server"
+      ],
       // "headers": {
       //   "Authorization": "${FIGMA_ACCESS_TOKEN}"
       // }
